@@ -6,7 +6,7 @@
           ==#===
 ```
 
-Your design skills, amplified.
+An agent design team you control. 8 agents that run an inclusive design process while you direct.
 
 Designpowers is an open, model-agnostic design workflow that gives you a team of 8 design agents. They discover, research, strategise, design, build, review, and hand off — with accessibility woven into every step. You're the creative director. They work for you.
 
