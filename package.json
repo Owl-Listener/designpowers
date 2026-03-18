@@ -1,0 +1,7 @@
+{
+  "name": "designpowers",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "An opinionated design workflow for coding agents — research, strategy, design, accessibility, and handoff, enforced automatically.",
+  "license": "MIT"
+}

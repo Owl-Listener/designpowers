@@ -1,0 +1,31 @@
+#!/bin/bash
+# Designpowers session-start hook
+# Injects the using-designpowers skill into every new session
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PLUGIN_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+SKILL_FILE="$PLUGIN_ROOT/skills/using-designpowers/SKILL.md"
+
+if [ ! -f "$SKILL_FILE" ]; then
+  echo "Warning: using-designpowers skill not found at $SKILL_FILE" >&2
+  exit 0
+fi
+
+SKILL_CONTENT=$(cat "$SKILL_FILE" | sed 's/\\/\\\\/g' | sed 's/"/\\"/g' | sed ':a;N;$!ba;s/\n/\\n/g')
+
+if [ -n "$CURSOR_SESSION" ]; then
+  cat <<EOF
+{
+  "role": "system",
+  "content": "EXTREMELY_IMPORTANT: The following skill MUST be followed in this session:\\n\\n${SKILL_CONTENT}"
+}
+EOF
+else
+  cat <<EOF
+{
+  "role": "user",
+  "content": "EXTREMELY_IMPORTANT: The following skill MUST be followed in this session:\\n\\n${SKILL_CONTENT}"
+}
+EOF
+fi

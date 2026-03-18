@@ -1,0 +1,18 @@
+{
+  "name": "designpowers",
+  "description": "Design workflow marketplace for Designpowers",
+  "owner": {
+    "name": "MC Dean"
+  },
+  "plugins": [
+    {
+      "name": "designpowers",
+      "description": "Design workflow for coding agents: discovery, research, strategy, inclusive design, critique, and handoff — enforced automatically",
+      "version": "1.0.0",
+      "source": "./",
+      "author": {
+        "name": "MC Dean"
+      }
+    }
+  ]
+}

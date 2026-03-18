@@ -1,0 +1,12 @@
+{
+  "name": "designpowers",
+  "description": "Design workflow for coding agents: discovery, research, strategy, inclusive design, critique, and handoff — enforced automatically",
+  "version": "1.0.0",
+  "author": {
+    "name": "MC Dean"
+  },
+  "homepage": "https://github.com/Owl-Listener/designpowers",
+  "repository": "https://github.com/Owl-Listener/designpowers",
+  "license": "MIT",
+  "keywords": ["design", "ux", "ui", "accessibility", "inclusive-design", "workflow", "skills"]
+}
