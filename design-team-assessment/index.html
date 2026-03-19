@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Team Readiness Assessment</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>Design Team Readiness</h1>
+      <p class="subtitle">Assess your team's design maturity across seven dimensions</p>
+    </header>
+
+    <main id="main">
+      <!-- Intro screen -->
+      <section id="intro" class="screen active">
+        <div class="intro-card">
+          <h2>How it works</h2>
+          <p>Answer 28 questions across seven dimensions of design maturity. Each question is scored 1–5. You'll get a detailed breakdown with specific recommendations for growth.</p>
+          <div class="dimensions-preview">
+            <span class="dim-tag" data-dim="process">Process</span>
+            <span class="dim-tag" data-dim="system">Design System</span>
+            <span class="dim-tag" data-dim="research">Research</span>
+            <span class="dim-tag" data-dim="accessibility">Accessibility</span>
+            <span class="dim-tag" data-dim="collaboration">Collaboration</span>
+            <span class="dim-tag" data-dim="culture">Culture</span>
+            <span class="dim-tag" data-dim="tooling">Tooling</span>
+          </div>
+          <p class="time-note">Takes about 5–8 minutes</p>
+          <button id="start-btn" class="btn btn-primary">Start Assessment</button>
+        </div>
+      </section>
+
+      <!-- Question screen -->
+      <section id="questions" class="screen">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="progress-text">
+          <span id="dimension-label" class="dimension-label"></span>
+          <span id="question-counter"></span>
+        </div>
+        <div class="question-card">
+          <h3 id="question-text"></h3>
+          <p id="question-hint" class="hint"></p>
+          <div class="scale" id="scale">
+            <button class="scale-btn" data-value="1">
+              <span class="scale-num">1</span>
+              <span class="scale-label">Not at all</span>
+            </button>
+            <button class="scale-btn" data-value="2">
+              <span class="scale-num">2</span>
+              <span class="scale-label">Rarely</span>
+            </button>
+            <button class="scale-btn" data-value="3">
+              <span class="scale-num">3</span>
+              <span class="scale-label">Sometimes</span>
+            </button>
+            <button class="scale-btn" data-value="4">
+              <span class="scale-num">4</span>
+              <span class="scale-label">Often</span>
+            </button>
+            <button class="scale-btn" data-value="5">
+              <span class="scale-num">5</span>
+              <span class="scale-label">Always</span>
+            </button>
+          </div>
+        </div>
+        <div class="nav-row">
+          <button id="prev-btn" class="btn btn-ghost" disabled>Back</button>
+        </div>
+      </section>
+
+      <!-- Results screen -->
+      <section id="results" class="screen">
+        <div class="results-header">
+          <h2>Your Results</h2>
+          <div class="overall-score">
+            <div class="score-ring" id="score-ring">
+              <svg viewBox="0 0 120 120">
+                <circle class="ring-bg" cx="60" cy="60" r="52" />
+                <circle class="ring-fill" id="ring-fill" cx="60" cy="60" r="52" />
+              </svg>
+              <div class="score-value" id="score-value">0</div>
+            </div>
+            <div class="score-meta">
+              <span class="maturity-level" id="maturity-level"></span>
+              <span class="score-label">out of 140</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="radar-section">
+          <canvas id="radar" width="400" height="400"></canvas>
+        </div>
+
+        <div class="breakdown" id="breakdown"></div>
+
+        <div class="recommendations" id="recommendations"></div>
+
+        <div class="actions-row">
+          <button id="retake-btn" class="btn btn-ghost">Retake</button>
+          <button id="export-btn" class="btn btn-primary">Export as Text</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="assessment.js"></script>
+</body>
+</html>
