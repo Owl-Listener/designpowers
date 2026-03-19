@@ -5,7 +5,7 @@ description: Use when reviewing design work against a plan, design principles, o
 
 # Design Critique
 
-Critique is not feedback on taste. It is a structured evaluation of whether the design achieves what it set out to do, for the people it set out to serve. This skill ensures review is rigorous, specific, and constructive.
+Critique is a structured evaluation of whether the design achieves what it set out to do, for the people it set out to serve — and whether it does so with the craft quality the project demands. This skill ensures review is rigorous, specific, and constructive. When a taste profile exists, critique includes aesthetic evaluation against that profile — not arbitrary personal preference, but the specific emotional target, craft standards, and quality bar the team agreed on.
 
 ## When to Use
 
@@ -33,7 +33,33 @@ For each design decision, ask:
 3. **Does it follow the design principles?** Specifically which principles it upholds or violates
 4. **Does it align with the design system?** If applicable
 
-### Step 3: Accessibility Review
+### Step 3: Craft and Taste Evaluation
+
+If a taste profile exists (from `design-taste`), evaluate the design against it:
+
+**Emotional target:**
+- [ ] Does the design evoke the intended feeling? (Reference the taste profile's emotional target)
+- [ ] Would the user describe this experience with the words in the emotional target?
+
+**Craft standards:**
+- [ ] Spacing has intentional rhythm — not just "correct," but considered
+- [ ] Colour usage follows the restraint/vibrancy rules in the taste profile
+- [ ] Shadows, borders, and radii use a consistent vocabulary
+- [ ] Typography choices serve both readability and personality
+- [ ] The overall composition feels cohesive — like one designer, not a committee
+
+**Reference benchmark:**
+- [ ] This design would sit comfortably next to the taste references
+- [ ] The quality level matches what was agreed (prototype/production/flagship)
+
+**Craft findings format:**
+| Element | Taste expectation | Current state | Gap |
+|---------|------------------|---------------|-----|
+| [Element] | [What the taste profile calls for] | [What exists] | [Specific difference] |
+
+If no taste profile exists, note this as an observation: "No taste profile was created for this project. Craft evaluation is based on general quality standards only."
+
+### Step 4: Accessibility Review
 
 Every critique includes an accessibility evaluation:
 
@@ -64,7 +90,7 @@ Every critique includes an accessibility evaluation:
 - [ ] ARIA is used only when necessary and correctly
 - [ ] The design works across supported browsers and assistive technology
 
-### Step 4: Classify Issues
+### Step 5: Classify Issues
 
 Rate each finding:
 
@@ -75,7 +101,7 @@ Rate each finding:
 | **Minor** | Improvement opportunity, does not block or significantly degrade | Fix if time allows |
 | **Note** | Observation or suggestion for future iteration | Document for next cycle |
 
-### Step 5: Write the Critique
+### Step 6: Write the Critique
 
 ```markdown
 # Design Critique: [Feature/Task Name]
@@ -86,6 +112,9 @@ Rate each finding:
 
 ## Summary
 [2-3 sentences: overall assessment]
+
+## Craft Assessment
+[Does the design meet the taste profile's quality bar? Emotional target alignment? Reference benchmark?]
 
 ## Findings
 
@@ -108,7 +137,7 @@ Rate each finding:
 [Proceed / Revise and re-review / Rethink approach]
 ```
 
-### Step 6: Present and Discuss
+### Step 7: Present and Discuss
 
 Present findings to the user. For each critical or major issue, explain:
 - What the issue is

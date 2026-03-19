@@ -44,6 +44,15 @@ _Last updated: [date] by [agent name]_
 2. [Principle] — [what it means in practice]
 3. ...
 
+## Taste Profile
+- **Emotional target:** [2-3 words — e.g., "calm confidence", "playful warmth"]
+- **Quality level:** [Prototype / Production / Flagship]
+- **Key references:** [names/URLs]
+- **Aesthetic principles:** [list]
+- **Taste document:** [path to full taste profile]
+
+_If no taste calibration was done, note: "No taste profile — craft evaluation uses general quality standards only."_
+
 ## Decisions Log
 Append-only. Each entry records who decided, what, and why.
 

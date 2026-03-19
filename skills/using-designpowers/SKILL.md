@@ -86,6 +86,7 @@ Before responding to ANY message — including clarifying questions — check wh
 | Research | `research-planning` | When user needs are unclear or assumptions need validation |
 | Personas | `inclusive-personas` | When defining who the design serves |
 | Strategy | `design-strategy` | When setting direction, principles, or competitive positioning |
+| Taste | `design-taste` | When calibrating aesthetic direction — references, emotional targets, craft standards, quality bar |
 | Plan | `writing-design-plans` | When a design spec exists and implementation needs breaking down |
 | UI | `ui-composition` | When building layouts, color, typography, visual hierarchy |
 | Interaction | `interaction-design` | When designing states, transitions, feedback, error handling |
@@ -113,6 +114,7 @@ Accessibility is not a separate step. It is present in every skill. When working
 | Red Flag | What To Do |
 |----------|-----------|
 | About to write UI code without design-discovery | STOP. Invoke design-discovery first |
+| About to make visual design decisions without a taste profile | PAUSE. Ask if the user wants to run taste calibration. Not mandatory, but the design will be stronger with one |
 | Designing for a "typical user" without considering ability spectrum | STOP. Invoke inclusive-personas |
 | Skipping straight to visuals without strategy | STOP. Invoke design-strategy |
 | About to declare work complete without evidence | STOP. Invoke verification-before-shipping |
