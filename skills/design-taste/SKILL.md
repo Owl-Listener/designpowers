@@ -30,17 +30,42 @@ Taste is the gap between compliance and craft. This skill gives agents a shared 
 
 ### Step 1: Gather Taste Inputs
 
-Ask the user for aesthetic direction. Not everyone speaks in design terms — meet them where they are.
+**This step is a conversation, not a form.** Actively prompt the user — don't wait for them to volunteer. Most people have strong taste but haven't been asked the right questions. Your job is to draw it out.
 
-**Ask these questions (adapt to context):**
+#### 1a: Check for an Existing Design System
 
-1. **References** — "Show me 2-3 designs you admire. What do you love about each?"
+Before asking subjective questions, check what already exists:
+
+- "Do you have an existing design system, style guide, or component library?"
+- "Can you point me to your tokens, brand guidelines, or any visual standards?"
+- "Is there a Figma file, Storybook, or design system documentation I should look at?"
+
+If a design system exists, **read it first.** Extract the taste signals already embedded in it:
+- Token naming conventions reveal design philosophy (is it semantic or literal?)
+- Colour palette composition reveals restraint or vibrancy
+- Spacing scale reveals density preference
+- Border radius values reveal personality (sharp = authoritative, rounded = friendly)
+- Shadow system reveals depth philosophy
+- Typography pairings reveal voice
+
+Document what the design system already tells you about taste before asking for more. The user shouldn't have to re-articulate what their system already expresses.
+
+#### 1b: Ask for the User's Own Thoughts
+
+After reviewing any existing system, prompt the user for their subjective direction. **Ask these directly — do not skip this step.** The user's gut feelings and personal instincts are the most valuable input. Meet them where they are — not everyone speaks in design terms.
+
+**Prompt with these questions (adapt to context):**
+
+1. **References** — "Show me 2-3 designs you admire. What do you love about each? These can be websites, apps, physical products, even spaces — anything that has the feel you want."
 2. **Emotional target** — "When someone uses this, what should it feel like?" (Examples: calm confidence, playful energy, quiet authority, warm invitation)
 3. **Anti-references** — "Show me something you'd hate this to look like. What makes it wrong?"
 4. **Quality bar** — "What level of polish are we targeting?" (Prototype → production → flagship)
 5. **Personality** — "If this product were a person, how would they dress? How would they speak?"
+6. **What's missing from the current system?** (If a design system exists) — "What do you wish your current design system did better? Where does it fall short of how you want things to feel?"
 
 Not every question is needed. Read the room. If the user has strong visual instincts, lean on references. If they think in feelings, lean on emotional targets. If they have anti-references, those are often more revealing than positive ones.
+
+**Important:** The user's subjective thoughts override what's in the design system. If the system says "sharp corners" but the user says "I want it to feel warmer," the taste profile should reflect the user's intent — and note the tension with the existing system as something to reconcile.
 
 ### Step 2: Analyse the References
 
@@ -70,6 +95,18 @@ Synthesise the references, emotional targets, and anti-references into a taste p
 
 ```markdown
 # Taste Profile: [Project Name]
+
+## Existing Design System
+[If one exists: what it already tells us about taste — palette philosophy, spacing density, personality signals from tokens/components. If none: "No existing design system — building taste from scratch."]
+
+### Taste Signals from the System
+- Colour philosophy: [e.g., "restrained neutral palette with a single blue accent"]
+- Density: [e.g., "generous spacing — the system breathes"]
+- Personality: [e.g., "rounded corners (8px default) suggest approachability"]
+- Typography voice: [e.g., "Inter for UI, serif for marketing — functional and warm"]
+
+### Where the User Wants to Evolve
+[What the user wants to change, extend, or push further from the existing system]
 
 ## Emotional Target
 [2-3 sentences: what this should feel like to use]

@@ -21,6 +21,7 @@ When the user says "proof of concept", "POC", "quick", "small", or the task is c
    - Who is it for?
    - What does success feel like?
    - How big is this? (POC / full product)
+   - Do you have an existing design system or style guide? Any designs you admire for feel?
 2. Write the brief immediately from their answers — don't ask follow-up rounds
 3. Present the brief for approval in one block (not section by section)
 4. **Create `design-state.md`** in the project root immediately after brief approval
@@ -49,6 +50,12 @@ Ask clarifying questions — ONE AT A TIME, not a wall of questions. Focus on:
 3. **What does success look like?** How will we know this design works? What changes for the person using it?
 4. **What constraints exist?** Technical, timeline, brand, accessibility requirements, regulatory
 5. **What has been tried before?** What worked, what failed, what was learned
+6. **Taste seed questions** — plant these early so the user starts thinking about aesthetic direction:
+   - "Do you have an existing design system, brand guidelines, or style guide we should work within?"
+   - "Any designs, products, or experiences you admire that feel like what you want here?"
+   - "What should this *feel* like to use? (e.g., calm, playful, premium, effortless)"
+
+   These are lightweight prompts, not the full taste calibration — that comes later via `design-taste`. But getting the user thinking about feel early means they arrive at taste calibration with sharper instincts. If they share a design system here, note it in the brief for the taste skill to pick up.
 
 ### Step 3: Identify the Ability Spectrum
 
@@ -90,6 +97,12 @@ Once the user has chosen a direction, write a design brief:
 
 ## Constraints
 [Technical, timeline, brand, accessibility, regulatory]
+
+## Existing Design System
+[Path to design system, style guide, or component library — or "None"]
+
+## Taste Direction (Early Signal)
+[Any references, feelings, or aesthetic preferences the user shared during discovery. This seeds the full taste calibration later.]
 
 ## Success Criteria
 [How we will know this works]
