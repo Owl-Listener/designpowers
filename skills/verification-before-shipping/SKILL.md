@@ -67,7 +67,16 @@ For each persona from the inclusive-personas phase:
 - [ ] Could [Persona 2] complete the primary task? How?
 - [ ] Could [Edge Case Persona] complete the primary task? What barriers remain?
 
-### Step 6: Report
+### Step 6: Check Design Debt
+
+Before declaring the project shippable, review the Design Debt Register in `design-state.md`:
+
+- [ ] All Critical and Major items are Resolved (not just Open or Escalated)
+- [ ] Any Escalated items have been addressed or consciously Accepted by the user
+- [ ] Open Minor items have been reviewed — the user knows what debt ships with this release
+- [ ] Accessibility debt items have explicit user acknowledgement if Accepted
+
+### Step 7: Report
 
 Present verification results to the user:
 
@@ -95,6 +104,12 @@ Present verification results to the user:
 ### Persona Walkthrough
 [Summary of persona-by-persona evaluation]
 
+### Design Debt Status
+- Open items shipping with this release: [count]
+- Escalated items: [count] — [resolved/accepted]
+- Accessibility debt accepted: [count] — [summary]
+- Oldest unresolved: [DD-XXX] from [date]
+
 ### Verdict
 [Ready to ship / Issues to resolve first]
 ```
@@ -104,25 +119,6 @@ Present verification results to the user:
 - **Called by:** Before any completion claim
 - **Follows:** `designpowers-critique`, `design-handoff`
 - **Blocks:** Completion claims, PR creation, merge decisions
-
-### Step 7: Check Design Debt
-
-Before declaring the project shippable, review the Design Debt Register in `design-state.md`:
-
-- [ ] All Critical and Major items are Resolved (not just Open or Escalated)
-- [ ] Any Escalated items have been addressed or consciously Accepted by the user
-- [ ] Open Minor items have been reviewed — the user knows what debt ships with this release
-- [ ] Accessibility debt items have explicit user acknowledgement if Accepted
-
-Include in the verification report:
-
-```markdown
-### Design Debt Status
-- Open items shipping with this release: [count]
-- Escalated items: [count] — [resolved/accepted]
-- Accessibility debt accepted: [count] — [summary]
-- Oldest unresolved: [DD-XXX] from [date]
-```
 
 ## The Iron Law
 

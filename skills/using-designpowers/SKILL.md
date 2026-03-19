@@ -7,9 +7,13 @@ description: Use when starting any conversation — establishes how to find and 
 
 Designpowers is a design workflow system. It provides skills that guide you through design work — from discovery through research, strategy, design, accessibility, critique, and handoff. These skills are not suggestions. They are mandatory workflows.
 
-## Welcome Screen
+## Welcome Sequence
 
-When Designpowers activates for the first time in a session (first design-related message), show this welcome screen before doing anything else:
+When Designpowers activates for the first time in a session (first design-related message), run this two-step welcome sequence before doing anything else.
+
+### Step 1: Show Welcome and Ask for Mode
+
+Show this welcome screen:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -37,36 +41,40 @@ When Designpowers activates for the first time in a session (first design-relate
   │                                                 │
   └─────────────────────────────────────────────────┘
 
-  CHOOSE YOUR MODE:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
 
-  ► DIRECT — you see every handoff, approve or redirect
-    Best for: learning the process, shaping the outcome,
-    high-stakes work where every decision matters
+Then immediately ask the user to choose their mode using AskUserQuestion. Do NOT proceed until they answer.
 
-  ► AUTO — agents run the full pipeline, you review
-    at the end with the complete handoff log
-    Best for: trusted workflows, quick iterations,
-    when you want output fast
+The question must present two options:
+- **Direct** — You see every handoff, approve or redirect. Best for: learning the process, shaping the outcome, high-stakes work where every decision matters.
+- **Auto** — Agents run the full pipeline, you review at the end with the complete handoff log. Best for: trusted workflows, quick iterations, when you want output fast.
 
-  You can switch at any time:
-    "go auto"  → agents run without stopping
-    "pause"    → back to direct mode
+If the user does not choose, default to Direct.
+
+### Step 2: Ask What to Design
+
+After the user has chosen their mode, confirm the mode and then ask what they want to design using AskUserQuestion with a free-text prompt. Show the "how to play" tips alongside:
+
+```
+  MODE: [DIRECT/AUTO] ✓
 
   HOW TO PLAY:
-  • Describe what you want to build
-  • Say "direct" or "auto" (defaults to direct)
   • Talk to any agent by name at any time
   • Say "debate this" to see competing approaches argued
   • Say "show me inspiration" for curated references
   • Your word is final — always
   • Your taste is remembered across projects
-
-  READY? Tell me what we're designing.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  • You can switch modes at any time:
+    "go auto"  → agents run without stopping
+    "pause"    → back to direct mode
 ```
 
-Only show this ONCE per session — the first time a design-related skill is triggered. Do not show it on subsequent skill invocations.
+Then ask: "What are we designing?"
+
+Do NOT proceed to any skill or agent until the user has answered both questions. The welcome sequence is complete only after mode is set and the user has described what they want to build.
+
+Only run this sequence ONCE per session — the first time a design-related skill is triggered. Do not show it on subsequent skill invocations.
 
 ## The Rule
 
