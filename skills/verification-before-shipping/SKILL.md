@@ -105,6 +105,25 @@ Present verification results to the user:
 - **Follows:** `designpowers-critique`, `design-handoff`
 - **Blocks:** Completion claims, PR creation, merge decisions
 
+### Step 7: Check Design Debt
+
+Before declaring the project shippable, review the Design Debt Register in `design-state.md`:
+
+- [ ] All Critical and Major items are Resolved (not just Open or Escalated)
+- [ ] Any Escalated items have been addressed or consciously Accepted by the user
+- [ ] Open Minor items have been reviewed — the user knows what debt ships with this release
+- [ ] Accessibility debt items have explicit user acknowledgement if Accepted
+
+Include in the verification report:
+
+```markdown
+### Design Debt Status
+- Open items shipping with this release: [count]
+- Escalated items: [count] — [resolved/accepted]
+- Accessibility debt accepted: [count] — [summary]
+- Oldest unresolved: [DD-XXX] from [date]
+```
+
 ## The Iron Law
 
 If you cannot produce evidence that the design works for the identified personas — including those at the margins of the ability spectrum — it is not done. Go back and verify.

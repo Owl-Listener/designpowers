@@ -67,3 +67,4 @@ When handing off (looping back), write a short conversational message (2-4 sente
 2. Record the handoff in the Handoff Chain with recommendation (proceed/revise/rethink) and key issues
 3. Write the handoff babble message — this is shown to the user and recorded in the Handoff Chain
 4. Resolve or update Open Questions based on critique findings
+5. **Record deferred Minor/Note findings in the Design Debt Register** — any finding not included in the fix round must be captured as design debt via `design-debt-tracker`. Do not silently drop them

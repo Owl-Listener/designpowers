@@ -147,8 +147,18 @@ Present findings to the user. For each critical or major issue, explain:
 
 Critical issues block progress. They must be resolved before moving to handoff.
 
+### Step 8: Record Design Debt
+
+After the critique is complete and the fix round is determined:
+
+1. Identify all **Minor** and **Note** severity findings that will NOT be fixed in this round
+2. Invoke `design-debt-tracker` to capture these as debt items in the Design Debt Register
+3. Each deferred item must include: who is affected, suggested fix, and why it was deferred
+
+Do not silently drop Minor findings. They either get fixed or they get tracked.
+
 ## Integration
 
 - **Called by:** `writing-design-plans` (at review checkpoints)
 - **Reviews output from:** `ui-composition`, `interaction-design`, `accessible-content`, `cognitive-accessibility`, `adaptive-interfaces`, `design-system-alignment`
-- **Calls:** Relevant design skills for fixes, then `design-handoff` when critique passes
+- **Calls:** Relevant design skills for fixes, `design-debt-tracker` for deferred findings, then `design-handoff` when critique passes

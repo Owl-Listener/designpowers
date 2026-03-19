@@ -28,7 +28,7 @@ Designpowers is an open, model-agnostic design workflow that gives you a team of
 | **accessibility-reviewer** | WCAG/COGA evaluation, audits output, loops back with fixes |
 | **design-critic** | Reviews against brief, plan, principles; loops back with gaps |
 
-**26 skills** that enforce a complete design workflow — from discovery through retrospective.
+**27 skills** that enforce a complete design workflow — from discovery through retrospective.
 
 **2 modes** — Direct (you approve every handoff) and Auto (agents run the pipeline, you review at the end).
 
@@ -94,6 +94,7 @@ Discover → Research → Strategise → Taste → Inspire → Plan → Design �
 | Adaptation | `adaptive-interfaces` | Motion sensitivity, colour schemes, text sizing |
 | Systems | `design-system-alignment` | Tokens, components, naming, consistency |
 | Critique | `designpowers-critique` | Review against plan, principles, personas |
+| Debt | `design-debt-tracker` | Living register of deferred findings — every "fix if time allows" tracked |
 | Handoff | `design-handoff` | Specs, rationale, accessibility requirements |
 | Testing | `usability-testing` | Plan tests, recruit participants, analyse findings, turn into actions |
 | Tokens | `token-architecture` | Three-layer token model, naming, theming, multi-platform |
@@ -119,6 +120,8 @@ Plus two coordination skills:
 **Inspiration scouting** — The inspiration-scout finds aesthetic and interaction references across domains, filtered through your taste profile. A banking app can be inspired by a meditation app's calm. Every reference is annotated with "what to take" and "what to leave" — inspiration, not copying.
 
 **Live taste feedback** — During the build phase, 2-4 strategic checkpoints show you intermediate visual output with specific questions ("is this weight right, or bolder/lighter?"). Catches aesthetic mismatches before the full build is done. Every response is recorded as a taste signal.
+
+**Design debt tracker** — Every "fix if time allows" and "future iteration" note from critiques and accessibility reviews goes into a living debt register. Items track who is affected, what the fix is, and why it was deferred. Debt escalates automatically when it ages or accumulates. Accessibility debt requires explicit user acknowledgement to accept. Like tech debt, but for design compromises.
 
 **Design retrospective** — After shipping, structured reflection on what worked, what didn't, what taste decisions landed, and what to carry forward. Feeds learnings back into design memory so the next project is sharper.
 

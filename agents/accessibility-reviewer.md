@@ -61,3 +61,4 @@ When handing off (looping back), write a short conversational message (2-4 sente
 2. Record the handoff in the Handoff Chain with severity summary and "fix these first" notes
 3. Write the handoff babble message — this is shown to the user and recorded in the Handoff Chain
 4. Add unresolved accessibility concerns to Open Questions
+5. **Record deferred Minor issues in the Design Debt Register** — any Minor finding not included in the fix round must be captured as design debt via `design-debt-tracker`. These are promises to real people. Do not let them vanish into a report

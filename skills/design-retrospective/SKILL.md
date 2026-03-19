@@ -75,7 +75,7 @@ Evaluate the workflow itself, not just the output:
 ### Process Assessment
 
 **Pipeline efficiency:**
-- Agents dispatched: [X of 8]
+- Agents dispatched: [X of 9]
 - Agents skipped: [list and why]
 - Fix rounds: [count] — [were they necessary or preventable?]
 - Mode used: [direct/auto/mixed] — [did the mode serve the project?]
@@ -96,7 +96,32 @@ Evaluate the workflow itself, not just the output:
 - Did the user switch from auto to direct? (signals the system missed something)
 ```
 
-### Step 5: Taste Evolution
+### Step 5: Design Debt Review
+
+Review the Design Debt Register from `design-state.md`:
+
+```markdown
+### Design Debt
+
+**Register status:**
+- Total items created: [count]
+- Resolved: [count] ([percentage])
+- Accepted: [count] — [were these the right trade-offs?]
+- Still Open: [count] — [should any escalate?]
+- Escalated during project: [count]
+
+**Debt patterns:**
+- Most affected persona: [name] — [X items affect them]
+- Most common source: [design-critic/accessibility-reviewer]
+- Average age of open items: [duration]
+
+**Debt health:**
+- [ ] Are we resolving debt faster than we create it?
+- [ ] Are the same types of issues recurring? (signals a systemic problem)
+- [ ] Did any accepted debt turn out to matter more than expected?
+```
+
+### Step 6: Taste Evolution
 
 Compare the taste profile at project start vs project end:
 
@@ -119,7 +144,7 @@ Compare the taste profile at project start vs project end:
 - [Unexpected preference] — the user surprised us by choosing [X] over [Y]
 ```
 
-### Step 6: Carry-Forward Items
+### Step 7: Carry-Forward Items
 
 What should the next project know?
 
@@ -143,7 +168,7 @@ What should the next project know?
 - [Unresolved question that might be relevant in future projects]
 ```
 
-### Step 7: Write the Retrospective
+### Step 8: Write the Retrospective
 
 Compile everything into a single document:
 
@@ -153,7 +178,7 @@ Compile everything into a single document:
 **Date:** [YYYY-MM-DD]
 **Duration:** [How long the project ran]
 **Mode:** [direct/auto/mixed]
-**Agents used:** [X of 8]
+**Agents used:** [X of 9]
 
 ## Summary
 [3-5 sentences: what was built, what worked, what was hard, what we learned]
@@ -167,16 +192,19 @@ Compile everything into a single document:
 ## Process Assessment
 [From Step 4]
 
-## Taste Evolution
+## Design Debt
 [From Step 5]
 
-## Carry Forward
+## Taste Evolution
 [From Step 6]
+
+## Carry Forward
+[From Step 7]
 ```
 
 Save to: `[project-root]/design-retrospective.md`
 
-### Step 8: Update Design Memory
+### Step 9: Update Design Memory
 
 After the retrospective is written:
 
@@ -184,7 +212,7 @@ After the retrospective is written:
 2. Pass the carry-forward items so they inform the taste profile
 3. Update project history in the taste profile
 
-### Step 9: Present to User
+### Step 10: Present to User
 
 Show the retrospective to the user as a summary:
 
@@ -202,13 +230,17 @@ Show the retrospective to the user as a summary:
   TASTE LEARNED:
   • [Key taste insights from this project]
 
+  DESIGN DEBT:
+  • Open: [count] | Resolved: [count] | Accepted: [count]
+  • Most affected: [persona]
+
   CARRY FORWARD:
   • [Top 2-3 lessons for next time]
 
   EFFICIENCY:
   • Fix rounds: [count]
   • User overrides: [count]
-  • Agents used: [X of 8]
+  • Agents used: [X of 9]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   Your taste profile has been updated.
@@ -219,7 +251,7 @@ Show the retrospective to the user as a summary:
 ## Integration
 
 - **Called by:** `using-designpowers` (after project completion or on user request)
-- **Reads from:** `design-state.md`, taste profile, critique documents, verification results
+- **Reads from:** `design-state.md` (including Design Debt Register), taste profile, critique documents, verification results
 - **Writes to:** `[project-root]/design-retrospective.md`
 - **Calls:** `design-memory` (to update taste profile with learnings)
 - **Pairs with:** `design-memory`, `verification-before-shipping`, `designpowers-critique`

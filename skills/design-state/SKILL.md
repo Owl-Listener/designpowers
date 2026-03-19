@@ -79,6 +79,14 @@ Paths to key documents produced during the workflow.
 | Plan | [path] | In progress |
 | ... | ... | ... |
 
+## Design Debt Register
+Deferred findings from critique and accessibility review. Managed by `design-debt-tracker`.
+
+_Items: 0 | Critical: 0 | Oldest: —_
+
+| ID | Date | Source | Severity | What | Who is affected | Suggested fix | Status | Notes |
+|----|------|--------|----------|------|----------------|---------------|--------|-------|
+
 ## Handoff Chain
 Track which agent handed off to which. Each entry includes the conversational babble message that the agent wrote when handing off. These messages are shown to the user.
 

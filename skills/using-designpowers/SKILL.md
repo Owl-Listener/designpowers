@@ -103,6 +103,7 @@ Before responding to ANY message — including clarifying questions — check wh
 | Systems | `design-system-alignment` | When working with or building design tokens and components |
 | Taste Check | `taste-feedback` | During build phase — shows intermediate visual output for mid-flight taste correction |
 | Critique | `designpowers-critique` | When reviewing design work against the plan |
+| Debt | `design-debt-tracker` | After reviews produce deferred findings, at project start to review accumulated debt, or when deciding what to fix next |
 | Handoff | `design-handoff` | When preparing specifications for engineering |
 | State | `design-state` | When any agent starts or completes work — maintains the shared design state |
 | Verify | `verification-before-shipping` | Before declaring any design work complete |
@@ -238,7 +239,7 @@ Every Designpowers workflow maintains a shared `design-state.md` file. Use the `
 - **After any agent completes:** update the design state with their decisions and handoff notes
 - **If no design state exists:** something is wrong — go back to discovery
 
-The design state is the shared context that keeps 8 independent agents pulling in the same direction.
+The design state is the shared context that keeps 9 independent agents pulling in the same direction.
 
 ## Screenshot Checkpoint
 
@@ -372,3 +373,4 @@ This summary:
 | "We don't need to debate this" when the team is uncertain | Premature convergence kills better options. When direction is unclear, run a design-debate |
 | Skipping the retrospective because the project is done | Done is not learned. The retrospective makes the next project better |
 | Not loading the taste profile at project start | The system already knows things about this user. Starting from zero wastes that knowledge |
+| Minor/Note findings dropped after review without tracking | Invoke design-debt-tracker to capture deferred items. Promises to personas don't disappear because severity is low |
