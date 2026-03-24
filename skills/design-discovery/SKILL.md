@@ -16,17 +16,13 @@ DO NOT proceed to any design, UI, or implementation work until discovery is comp
 ### Quick Discovery (for POCs and small tasks)
 When the user says "proof of concept", "POC", "quick", "small", or the task is clearly exploratory:
 
-1. Ask **one round** of questions — combine the essential questions into a single message:
-   - What problem are we solving?
-   - Who is it for?
-   - What does success feel like?
-   - How big is this? (POC / full product)
-   - Do you have an existing design system or style guide? Any designs you admire for feel?
+1. Keep it light. Ask a few essentials in a conversational way — not as a numbered checklist:
+   > "Quick version: what's the problem, who's it for, and what does success feel like? If you've got a design system or any references you love, throw those in too."
 2. Write the brief immediately from their answers — don't ask follow-up rounds
 3. Present the brief for approval in one block (not section by section)
 4. **Create `design-state.md`** in the project root immediately after brief approval
 
-Quick discovery should take **one user message** of answers, not three.
+Quick discovery should take **one user message** of answers, not three. But the question should still feel like a person asking, not a form.
 
 ### Full Discovery (for products and complex tasks)
 When the task is a full product, involves multiple stakeholders, or the user explicitly wants depth — use the full process below.
@@ -43,19 +39,32 @@ Before asking questions, gather what already exists:
 
 ### Step 2: Explore Intent
 
-Ask clarifying questions — ONE AT A TIME, not a wall of questions. Focus on:
+Have a conversation, not an interrogation. The goal is to understand what the user wants to build and why — but the tone should feel like two people talking, not a form being filled out.
+
+**Start with an open invitation**, not a structured question:
+> "Tell me about what you're building. What's the story behind it?"
+
+Let the user talk. Listen for the answers to these questions in what they say, and only ask follow-ups for what's missing:
 
 1. **What problem are we solving?** Not what feature are we building — what human problem does this address?
 2. **Who experiences this problem?** Not "users" — which specific people, in what situations, with what abilities and constraints?
 3. **What does success look like?** How will we know this design works? What changes for the person using it?
 4. **What constraints exist?** Technical, timeline, brand, accessibility requirements, regulatory
 5. **What has been tried before?** What worked, what failed, what was learned
-6. **Taste seed questions** — plant these early so the user starts thinking about aesthetic direction:
-   - "Do you have an existing design system, brand guidelines, or style guide we should work within?"
-   - "Any designs, products, or experiences you admire that feel like what you want here?"
-   - "What should this *feel* like to use? (e.g., calm, playful, premium, effortless)"
 
-   These are lightweight prompts, not the full taste calibration — that comes later via `design-taste`. But getting the user thinking about feel early means they arrive at taste calibration with sharper instincts. If they share a design system here, note it in the brief for the taste skill to pick up.
+**Ask follow-ups ONE AT A TIME.** Don't list all missing items at once. Pick the most important gap, ask about it conversationally, and repeat. Frame questions around what they've already told you:
+- Instead of "What are your constraints?" → "You mentioned it needs to work on mobile — any other constraints I should know about?"
+- Instead of "Who are the users?" → "You said it's for busy parents — tell me more about their typical day when they'd use this."
+
+**Weave in taste seeds naturally.** Don't make these a separate section — fold them into the conversation when the moment feels right:
+- "Do you have a design system or style guide we should work within?"
+- "Any products or experiences you admire that have the feel you're going for?"
+- "How should this *feel* to use? (calm, playful, premium, effortless — whatever comes to mind)"
+
+These are lightweight prompts, not the full taste calibration — that comes later via `design-taste`. But getting the user thinking about feel early means they arrive at taste calibration with sharper instincts. If they share a design system here, note it in the brief for the taste skill to pick up.
+
+**Acknowledge what they tell you.** Before asking the next question, briefly reflect back what you heard. This shows you're listening and gives the user a chance to correct misunderstandings early:
+> "So this is about reducing no-shows for a small clinic — the receptionist is spending half their day on reminder calls. Got it. Who else is affected by this beyond the receptionist?"
 
 ### Step 3: Identify the Ability Spectrum
 

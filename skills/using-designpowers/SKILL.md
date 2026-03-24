@@ -9,11 +9,15 @@ Designpowers is a design workflow system. It provides skills that guide you thro
 
 ## Welcome Sequence
 
-When Designpowers activates for the first time in a session (first design-related message), run this two-step welcome sequence before doing anything else.
+When Designpowers activates for the first time in a session (first design-related message), run this welcome sequence before doing anything else.
 
-### Step 1: Show Welcome and Ask for Mode
+### Step 1: Check for Returning User
 
-Show this welcome screen:
+Before showing anything, check for an existing taste profile at `~/.designpowers/taste-profile.md`. This determines whether this is a first-time or returning user, which changes the welcome flow.
+
+### Step 2: Show Welcome
+
+**For first-time users** (no taste profile found), show this welcome:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -25,56 +29,245 @@ Show this welcome screen:
   ▓▓▓▓  DESIGNPOWERS  ▓▓▓▓
   ━━━━━━━━━━━━━━━━━━━━━━━━
 
-  ✦ YOUR DESIGN TEAM IS READY ✦
+  Hey — welcome. You've got a design team now.
 
-  ┌─────────────────────────────────────────────────┐
-  │                                                 │
-  │  ◆ design-strategist  ····  flows & direction   │
-  │  ◆ design-scout       ····  research & evidence │
-  │  ◆ inspiration-scout  ····  aesthetic references │
-  │  ◆ design-lead        ····  visual design       │
-  │  ◆ motion-designer    ····  animation & motion  │
-  │  ◆ content-writer     ····  words & copy        │
-  │  ◆ design-builder     ····  code & assembly     │
-  │  ◆ accessibility-reviewer · inclusive design     │
-  │  ◆ design-critic      ····  quality & alignment │
-  │                                                 │
-  └─────────────────────────────────────────────────┘
+  Here's how it works: you describe what you want
+  to build, and a team of 9 design agents works
+  through it — research, strategy, visual design,
+  content, accessibility, code. They talk to each
+  other, hand off work, and check each other's
+  output.
+
+  You're the creative director. You can steer,
+  correct, or override anything at any time.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-Then immediately ask the user to choose their mode using AskUserQuestion. Do NOT proceed until they answer.
-
-The question must present two options:
-- **Direct** — You see every handoff, approve or redirect. Best for: learning the process, shaping the outcome, high-stakes work where every decision matters.
-- **Auto** — Agents run the full pipeline, you review at the end with the complete handoff log. Best for: trusted workflows, quick iterations, when you want output fast.
-
-If the user does not choose, default to Direct.
-
-### Step 2: Ask What to Design
-
-After the user has chosen their mode, confirm the mode and then ask what they want to design using AskUserQuestion with a free-text prompt. Show the "how to play" tips alongside:
+**For returning users** (taste profile exists), show this instead:
 
 ```
-  MODE: [DIRECT/AUTO] ✓
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  HOW TO PLAY:
-  • Talk to any agent by name at any time
-  • Say "debate this" to see competing approaches argued
-  • Say "show me inspiration" for curated references
-  • Your word is final — always
-  • Your taste is remembered across projects
-  • You can switch modes at any time:
-    "go auto"  → agents run without stopping
-    "pause"    → back to direct mode
+                <o)
+                /) )
+              ==#===
+
+  ▓▓▓▓  DESIGNPOWERS  ▓▓▓▓
+  ━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Welcome back. Your taste profile is loaded —
+  [X] strong opinions, [Y] soft patterns from
+  [Z] previous projects.
+
+  [1-2 sentence summary of key taste signals,
+  e.g., "You tend toward warm neutrals, generous
+  whitespace, and a single accent colour."]
+
+  Anything changed since last time?
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-Then ask: "What are we designing?"
+For returning users, briefly pause after the welcome to let them confirm or update their taste before proceeding. If they say nothing changed or just want to continue, move on.
 
-Do NOT proceed to any skill or agent until the user has answered both questions. The welcome sequence is complete only after mode is set and the user has described what they want to build.
+### Step 3: Offer Guided Walkthrough (First-Time Users Only)
 
-Only run this sequence ONCE per session — the first time a design-related skill is triggered. Do not show it on subsequent skill invocations.
+For first-time users, ask whether they want to see how the system works before starting their own project:
+
+Use AskUserQuestion with these options:
+- **Show me how it works** — "I'll walk you through a quick 2-minute example so you can see the agents in action before starting your own project."
+- **I'm ready to go** — "Let's jump straight into your project. I'll explain things as we go."
+
+If the user does not choose, default to "I'm ready to go."
+
+**If they choose the walkthrough**, run the Guided Walkthrough (see section below) before proceeding.
+
+**If they choose to go**, skip to Step 4.
+
+Returning users skip this step entirely — they've seen it.
+
+### Step 4: Ask What to Design
+
+Ask the user what they want to build. Keep it conversational:
+
+```
+  What are we designing?
+
+  Could be anything — an app, a landing page, a
+  dashboard, a component. Describe it however feels
+  natural. I'll ask questions to fill in the gaps.
+```
+
+Use AskUserQuestion with a free-text prompt. Do NOT proceed to any skill or agent until the user has described what they want to build.
+
+### Step 5: Start in Direct Mode (Explain Later)
+
+All sessions start in **Direct mode** by default. Do NOT ask users to choose between Direct and Auto upfront — the choice is meaningless before they've seen a handoff.
+
+Instead, explain modes the first time a handoff actually happens (see "Progressive Tips" section below). At that first handoff, briefly explain:
+
+> This is a handoff — **[agent-a]** is passing work to **[agent-b]**. You can approve, correct, redirect, or skip. If you'd rather let the agents run and review everything at the end, say **"go auto"** anytime.
+
+For returning users who have used Designpowers before: still start in Direct, but skip the handoff explanation (they already know).
+
+Only run this welcome sequence ONCE per session — the first time a design-related skill is triggered. Do not show it on subsequent skill invocations.
+
+---
+
+## Guided Walkthrough
+
+This is a short, narrated example that shows first-time users how Designpowers works. It runs only when the user opts in during the welcome sequence. The walkthrough uses a tiny fictional project to demonstrate the mechanics without requiring the user to commit to anything.
+
+### The Example Project
+
+The walkthrough designs a **reading list page** — simple enough to move fast, rich enough to show the workflow. The user watches, but can interact at decision points.
+
+### Walkthrough Flow
+
+Run through these steps, narrating what's happening and why at each stage. Keep it brisk — the whole thing should take about 2 minutes of reading time. Use real agent names and real handoff babble so the user sees the actual mechanics.
+
+#### 1. Discovery (30 seconds)
+
+Narrate:
+> "Every project starts with discovery — understanding what we're building and for whom. Let me show you what that looks like."
+
+Show a compressed version of discovery for the reading list page:
+
+```
+  DISCOVERY
+
+  Problem: People save articles but never go back
+  to them. A reading list that helps people actually
+  read what they save.
+
+  Users: Busy professionals who read on phones during
+  commutes and on laptops in the evening.
+
+  Success: People return to the list and finish
+  articles they started.
+```
+
+Narrate:
+> "In your real project, I'll ask you these questions. For now, let's pretend we've got our answers and move on."
+
+#### 2. Agent Handoff (30 seconds)
+
+Narrate:
+> "Now watch what happens when agents hand off to each other. Each one writes a short message to the next — you can see their thinking."
+
+Show a sample handoff:
+
+```
+  ◆ design-strategist → design-lead:
+    "Simple list with reading progress. The key
+    insight: people abandon articles because the list
+    feels like a wall of guilt. We need to surface
+    what's most worth finishing, not just what's
+    newest. Think 'gentle nudge,' not 'to-do list.'"
+```
+
+Narrate:
+> "This is a **handoff**. In your project, you'll see these between every agent. You can approve it, change it, or send it back. You're always in control."
+
+#### 3. The Creative Director Moment (30 seconds)
+
+Narrate:
+> "Here's the part that matters most — your input. At every handoff, you can steer the direction."
+
+Show the user what their options look like:
+
+```
+  What would you do here?
+
+  ► "ok"                    → approve, move on
+  ► "Make it darker"        → correct the direction
+  ► "Also add tags"         → add a requirement
+  ► "Back to strategist"    → send it back
+  ► "Skip to builder"       → jump ahead
+  ► "design-lead, why?"     → ask an agent directly
+```
+
+Narrate:
+> "Your word overrides everything. The agents propose, you decide."
+
+#### 4. Review and Critique (30 seconds)
+
+Narrate:
+> "After the design is built, two agents review it at the same time — one for quality, one for accessibility."
+
+Show a sample review moment:
+
+```
+  ◆ design-critic:
+    "The reading progress indicator is strong —
+    it answers 'where was I?' instantly. But the
+    typography feels too uniform. The article
+    titles need more weight to create a clear
+    entry point."
+
+  ◆ accessibility-reviewer:
+    "Contrast passes at all sizes. But the progress
+    bar is colour-only — needs a text percentage
+    for screen readers and colour-blind users."
+```
+
+Narrate:
+> "The team catches issues so you don't have to spot everything yourself. Accessibility is checked at every step, not bolted on at the end."
+
+#### 5. Wrap Up
+
+Narrate:
+> "That's the basics: discovery → agents hand off work → you steer at every step → reviewers catch issues. There's more — taste calibration, debates, design memory — but you'll discover those as we go."
+
+Then show:
+
+```
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Ready to start your own project?
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+Then proceed to Step 4 of the welcome sequence ("What are we designing?").
+
+### Walkthrough Rules
+
+1. **Never force the walkthrough.** It is always optional. If the user says skip at any point, stop immediately and go to "What are we designing?"
+2. **Keep it under 2 minutes of reading time.** If it feels like it's dragging, compress.
+3. **Use the real mechanics.** Real agent names, real babble format, real handoff structure. The walkthrough should be accurate to what the user will actually experience.
+4. **Don't run a real pipeline.** This is narrated, not executed. No agents are actually dispatched. No design-state.md is created.
+5. **Only show this once, ever.** If the user has seen the walkthrough (returning user with taste profile), never offer it again.
+
+---
+
+## Progressive Tips
+
+Instead of showing all "how to play" tips at once, surface them contextually when they become relevant. This replaces the old upfront tip block.
+
+### Tip Triggers
+
+| Moment | Tip to Show |
+|--------|------------|
+| **First handoff** | "This is a handoff. You can approve ('ok'), correct, redirect, or skip. Say 'go auto' to let agents run without stopping." |
+| **First time an agent speaks** | "You can talk to any agent by name — just say 'design-lead, why did you choose that?' and they'll answer." |
+| **First taste-related decision** | "Your aesthetic preferences are remembered across projects. The more taste direction you give, the better the output gets." |
+| **First time direction feels uncertain** | "If you're not sure which way to go, say 'debate this' and agents will argue competing approaches so you can decide." |
+| **First review/critique** | "The critic and accessibility reviewer run in parallel. If they disagree, the system resolves it — accessibility wins over aesthetics." |
+| **First time user corrects or overrides** | "Good — that override is recorded. The system learns from your corrections and carries them into future projects." |
+| **After 3+ handoffs approved without comment** | "If you're happy with the flow and want to speed up, say 'go auto' and the agents will run the rest without pausing." |
+
+### Tip Rules
+
+1. **Show each tip at most once per session.** Once shown, mark it as delivered and do not repeat.
+2. **Keep tips to one sentence.** Two at most. They should feel like a helpful aside, not a lecture.
+3. **Format tips as a brief aside**, visually distinct from agent output:
+   ```
+   💡 You can talk to any agent by name — just say "design-lead, why?"
+   ```
+4. **Never interrupt flow to show a tip.** Tips appear alongside agent output, not instead of it.
+5. **Skip all tips for returning users** who have used Designpowers before (taste profile has 2+ projects in history). They know the system.
 
 ## The Rule
 

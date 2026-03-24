@@ -34,25 +34,9 @@ Designpowers is an open, model-agnostic design workflow that gives you a team of
 
 ## How It Works
 
-When you describe something to build, Designpowers activates:
+When you describe something to build, Designpowers activates with a friendly welcome. First-time users can opt into a **guided walkthrough** — a 2-minute narrated example that shows how agents hand off work, how you steer decisions, and how reviews catch issues. No commitment required. Returning users get their taste profile loaded automatically.
 
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-            <o)
-            /) )
-          ==#===
-
-  ▓▓▓▓  DESIGNPOWERS  ▓▓▓▓
-
-  ✦ YOUR DESIGN TEAM IS READY ✦
-
-  CHOOSE YOUR MODE:
-  ► DIRECT — approve every handoff
-  ► AUTO   — agents run, you review at the end
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
+The system starts in **Direct mode** — you see every handoff and approve before the next agent runs. You can switch to Auto anytime by saying "go auto." Tips appear contextually as features become relevant, not all at once.
 
 Agents hand off to each other with conversational messages you can see:
 
@@ -140,6 +124,12 @@ Plus two coordination skills:
 **Design state** — A shared `design-state.md` file accumulates decisions, handoff notes, and the full babble chain. Every agent reads it before starting.
 
 **Quick discovery** — POCs and small tasks get one round of questions and an immediate brief. Full products get the deep multi-step process.
+
+**Guided walkthrough** — First-time users can opt into a 2-minute narrated example before starting their own project. See agents hand off, steer a decision, watch a review — then start for real. No commitment, no pressure.
+
+**Progressive tips** — Instead of a wall of instructions upfront, tips appear at the moment they're useful. You learn about debates when direction is uncertain, about talking to agents when an agent first speaks, about auto mode after you've approved a few handoffs. The system teaches by doing.
+
+**Returning user recognition** — If you've used Designpowers before, the system loads your taste profile and greets you with a summary. No re-explaining, no repeat walkthrough.
 
 ## Philosophy
 
