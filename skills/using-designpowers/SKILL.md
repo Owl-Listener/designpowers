@@ -303,7 +303,9 @@ Before responding to ANY message — including clarifying questions — check wh
 | Adaptation | `adaptive-interfaces` | When designing for user preferences, motion sensitivity, flexibility |
 | Systems | `design-system-alignment` | When working with or building design tokens and components |
 | Taste Check | `taste-feedback` | During build phase — shows intermediate visual output for mid-flight taste correction |
+| Heuristic | `heuristic-evaluation` | After build — dispatches heuristic-evaluator agent for Nielsen's 10 + cognitive walkthrough, runs in parallel with critic and accessibility-reviewer |
 | Critique | `designpowers-critique` | When reviewing design work against the plan |
+| Synthetic Test | `synthetic-user-testing` | After fix round — walks through key tasks as each persona to validate the design works for real people in real conditions |
 | Debt | `design-debt-tracker` | After reviews produce deferred findings, at project start to review accumulated debt, or when deciding what to fix next |
 | Handoff | `design-handoff` | When preparing specifications for engineering |
 | State | `design-state` | When any agent starts or completes work — maintains the shared design state |
@@ -333,6 +335,8 @@ Accessibility is not a separate step. It is present in every skill. When working
 | Design direction is uncertain with multiple viable options | PAUSE. Invoke design-debate before committing |
 | Designing for a "typical user" without considering ability spectrum | STOP. Invoke inclusive-personas |
 | Skipping straight to visuals without strategy | STOP. Invoke design-strategy |
+| Skipping heuristic evaluation after build | STOP. Dispatch heuristic-evaluator alongside critic and accessibility-reviewer |
+| Skipping synthetic user testing after fix round | STOP. Run synthetic-user-testing before verification — the persona walkthrough needs evidence, not guesswork |
 | About to declare work complete without evidence | STOP. Invoke verification-before-shipping |
 | Building components without checking the design system | STOP. Invoke design-system-alignment |
 | Writing interface copy without considering reading levels | STOP. Invoke accessible-content |
@@ -356,6 +360,7 @@ Agents unique to Designpowers (no built-in equivalent):
 - **motion-designer** — animation choreography, micro-interactions, reduced motion
 - **accessibility-reviewer** — WCAG evaluation, cognitive accessibility, inclusive interaction
 - **design-critic** — plan alignment, brief adherence, gap identification
+- **heuristic-evaluator** — Nielsen's 10 heuristics, cognitive walkthrough, usability validation
 - **inspiration-scout** — aesthetic references, cross-domain inspiration, mood board curation
 
 ## Handoff Babble
@@ -469,8 +474,10 @@ The user can switch at any time during a run:
 Even in auto mode, the orchestrator **must pause** and switch to direct if:
 1. The **accessibility-reviewer** finds a critical issue — the user should decide how to resolve it
 2. The **design-critic** recommends "rethink" (not just "revise") — the strategy may need user input
-3. The **reconciliation protocol** produces an unresolvable conflict — the user breaks the tie
-4. Any agent flags an **open question that requires user knowledge** (e.g., "I don't know the brand colours")
+3. The **heuristic-evaluator** finds a critical H3 (no undo on destructive action) or H1 (user completely lost) violation — these indicate structural problems, not polish issues
+4. The **synthetic-user-testing** shows a persona cannot complete the primary task — the design has fundamentally failed for that person
+5. The **reconciliation protocol** produces an unresolvable conflict — the user breaks the tie
+6. Any agent flags an **open question that requires user knowledge** (e.g., "I don't know the brand colours")
 
 When auto mode pauses for a safeguard, show the user why:
 > ⚠️ **Auto paused:** accessibility-reviewer found a critical issue that needs your decision. [details]
@@ -545,40 +552,45 @@ If the content-writer was not dispatched (skipped), flag this to the builder: "N
 
 ## Reconciliation Protocol
 
-When two agents review the same work (typically **accessibility-reviewer** and **design-critic** running in parallel after **design-builder** completes), their findings may conflict. Resolve conflicts using this protocol:
+When reviewers evaluate the same work (typically **accessibility-reviewer**, **design-critic**, and **heuristic-evaluator** running in parallel after **design-builder** completes), their findings may conflict. Resolve conflicts using this protocol:
 
 ### Step 1: Dispatch Reviewers in Parallel
 
 ```
 design-builder finishes
         |
-   ┌────┴────┐
-   v         v
-critic    reviewer    (run simultaneously)
-   |         |
-   └────┬────┘
+   ┌────┼────────┐
+   v    v        v
+critic  reviewer  heuristic    (run simultaneously)
+   |    |        |
+   └────┼────────┘
         v
   reconciliation     (orchestrator resolves conflicts)
         v
   design-builder     (fix round)
+        v
+  synthetic-user-testing   (validate fixes with persona walkthroughs)
 ```
 
 ### Step 2: Classify Each Finding
 
+Findings now come from three sources (critic, accessibility-reviewer, heuristic-evaluator). Classify all findings regardless of source:
+
 | Category | Definition | Example |
 |----------|-----------|---------|
-| **Aligned** | Both agents agree | Critic says "missing empty state." Reviewer says "empty state has no screen reader announcement." Same issue, different angles |
-| **Complementary** | Different findings, no conflict | Critic says "colour is off-brand." Reviewer says "touch targets too small." Fix both |
-| **Conflicting** | Agents disagree on what to do | Critic says "add decorative animation for delight." Reviewer says "that animation is a vestibular risk" |
+| **Aligned** | Multiple agents flag the same issue | Critic says "missing empty state." Reviewer says "empty state has no screen reader announcement." Heuristic-evaluator says "empty state violates H1 — no system status." Same issue, three angles |
+| **Complementary** | Different findings, no conflict | Critic says "colour is off-brand." Reviewer says "touch targets too small." Heuristic-evaluator says "no undo on delete." Fix all |
+| **Conflicting** | Agents disagree on what to do | Critic says "add decorative animation for delight." Reviewer says "that animation is a vestibular risk." Heuristic-evaluator says "animation violates H8 — unnecessary element" |
 
 ### Step 3: Resolve Conflicts
 
 When findings conflict, apply these rules in order:
 
 1. **Accessibility wins over aesthetics** — if a visual recommendation creates an accessibility issue, the accessibility-reviewer's finding takes priority
-2. **Brief wins over opinion** — if the conflict is about direction, refer to the design brief and principles. The answer that better serves the stated intent wins
-3. **Personas break ties** — if the brief does not resolve it, evaluate from each persona's perspective. The option that serves more personas (especially those with the greatest access needs) wins
-4. **Escalate to user if unresolvable** — if the rules above do not produce a clear answer, present both findings to the user with the trade-off and ask them to decide
+2. **Usability wins over style** — if a heuristic violation conflicts with a craft recommendation, fix the usability problem first. A beautiful interface that confuses people has failed
+3. **Brief wins over opinion** — if the conflict is about direction, refer to the design brief and principles. The answer that better serves the stated intent wins
+4. **Personas break ties** — if the brief does not resolve it, evaluate from each persona's perspective. The option that serves more personas (especially those with the greatest access needs) wins
+5. **Escalate to user if unresolvable** — if the rules above do not produce a clear answer, present all findings to the user with the trade-offs and ask them to decide
 
 ### Step 4: Create Fix Round
 
@@ -588,6 +600,23 @@ After reconciliation:
 3. Dispatch **design-builder** with the fix list
 4. Update `design-state.md` with reconciliation decisions
 5. Re-run reviewers ONLY on critical fixes (not the full review)
+
+### Step 5: Synthetic User Testing
+
+After the fix round, run `synthetic-user-testing` to validate the design works for real personas doing real tasks:
+
+1. Walk through every key task as each persona from `inclusive-personas`
+2. Test at the persona's actual conditions (zoom level, screen reader, device, emotional state)
+3. Produce a barrier matrix showing which personas can/can't complete which tasks
+4. Surface any issues the fix round introduced or failed to resolve
+
+**If synthetic testing finds critical issues:**
+- Dispatch **design-builder** with the specific persona-task failures
+- Re-run synthetic testing on the fixed tasks only (not the full test suite)
+
+**If synthetic testing passes:**
+- Results feed directly into `verification-before-shipping` as evidence for the persona walkthrough section
+- The verification report can now cite synthetic test results instead of guesswork
 
 ## Team Presentation
 
@@ -636,7 +665,7 @@ The design-lead introduces each agent briefly ("Let's hear from design-scout on 
 
 After all agents have spoken, the design-lead **explicitly surfaces any disagreements or tensions** from the project. These include:
 
-- Reconciliation conflicts between critic and accessibility-reviewer
+- Reconciliation conflicts between critic, accessibility-reviewer, and heuristic-evaluator
 - Trade-offs where one agent's preference was overridden by another
 - Decisions where the team went one way but an agent still has reservations
 - Areas where the brief was ambiguous and agents interpreted it differently
@@ -666,7 +695,9 @@ After the team has spoken, show the factual summary:
 
   QUALITY:
   • Accessibility: [summary — e.g., "AA compliant, 13 fixes applied"]
+  • Heuristics: [summary — e.g., "9/10 pass, H3 violation fixed"]
   • Critic verdict: [proceed/revise — and key finding]
+  • Synthetic testing: [summary — e.g., "4/4 personas pass all tasks"]
   • Taste checks: [count and outcomes]
   • Fix rounds: [number]
 
