@@ -147,14 +147,7 @@ Plus two coordination skills:
 
 ## Installation
 
-### Claude Code (recommended)
-
-```bash
-/plugin marketplace add Owl-Listener/designpowers
-/plugin install designpowers@designpowers
-```
-
-Or manually:
+### Claude Code
 
 ```bash
 git clone https://github.com/Owl-Listener/designpowers.git

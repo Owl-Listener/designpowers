@@ -77,10 +77,12 @@ Paths to key documents produced during the workflow.
 | Personas | [path] | Complete |
 | Strategy | [path] | Complete |
 | Plan | [path] | In progress |
+| Heuristic evaluation | [path] | [Pending/Complete] |
+| Synthetic test results | [path] | [Pending/Complete] |
 | ... | ... | ... |
 
 ## Design Debt Register
-Deferred findings from critique and accessibility review. Managed by `design-debt-tracker`.
+Deferred findings from critique, accessibility review, heuristic evaluation, and synthetic user testing. Managed by `design-debt-tracker`.
 
 _Items: 0 | Critical: 0 | Oldest: —_
 
