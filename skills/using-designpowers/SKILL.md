@@ -1,6 +1,6 @@
 ---
 name: using-designpowers
-description: Use when starting any conversation — establishes how to find and use design skills, requiring Skill tool invocation before ANY response including clarifying questions
+description: MUST run before any other Designpowers skill — shows welcome, checks taste profile, and routes to the correct first skill. Triggers on ANY design-related message. No other Designpowers skill may run until the welcome sequence has completed
 ---
 
 # Using Designpowers
