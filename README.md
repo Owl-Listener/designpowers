@@ -149,11 +149,24 @@ Plus two coordination skills:
 
 ### Claude Code
 
+**Option A: Work inside the repo (recommended)**
+
 ```bash
 git clone https://github.com/Owl-Listener/designpowers.git
-cp -r designpowers/skills/* ~/.claude/skills/
-cp -r designpowers/agents/* ~/.claude/agents/
-cp -r designpowers/hooks/* ~/.claude/hooks/
+cd designpowers
+```
+
+That's it. The `CLAUDE.md` and `.claude/settings.json` in the repo ensure the welcome screen and onboarding run automatically when you start a session.
+
+**Option B: Copy into your own project**
+
+```bash
+git clone https://github.com/Owl-Listener/designpowers.git
+cp -r designpowers/skills/ your-project/skills/
+cp -r designpowers/agents/ your-project/agents/
+cp -r designpowers/hooks/ your-project/hooks/
+cp designpowers/CLAUDE.md your-project/CLAUDE.md
+cp -r designpowers/.claude/ your-project/.claude/
 ```
 
 ### Other AI Tools (Cursor, Windsurf, Copilot, Aider, etc.)
