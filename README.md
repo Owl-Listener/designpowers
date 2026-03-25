@@ -6,15 +6,15 @@
           ==#===
 ```
 
-An agent design team you control. 9 agents that run an inclusive design process while you direct. The system learns your taste.
+An agent design team you control. 10 agents that run an inclusive design process while you direct. The system learns your taste.
 
-Designpowers is an open, model-agnostic design workflow that gives you a team of 9 design agents. They discover, research, strategise, design, build, review, and hand off — with accessibility woven into every step. The system remembers your aesthetic preferences across projects, argues competing directions when you're unsure, and catches taste mismatches mid-build instead of at the end. You're the creative director. They work for you.
+Designpowers is an open, model-agnostic design workflow that gives you a team of 10 design agents. They discover, research, strategise, design, build, review, and hand off — with accessibility woven into every step. The system remembers your aesthetic preferences across projects, argues competing directions when you're unsure, and catches taste mismatches mid-build instead of at the end. You're the creative director. They work for you.
 
 **Works with any AI coding tool.** Designpowers is markdown files — skills, agents, and hooks. It's built as a Claude Code plugin, but the design knowledge works anywhere that reads markdown instructions: Cursor, Windsurf, Copilot, Aider, or any future tool. The design process is the product, not the platform.
 
 ## What You Get
 
-**9 specialist agents** that talk to each other and hand off work:
+**10 specialist agents** that talk to each other and hand off work:
 
 | Agent | What they do |
 |-------|-------------|
@@ -27,8 +27,9 @@ Designpowers is an open, model-agnostic design workflow that gives you a team of
 | **design-builder** | Builds specs into production code |
 | **accessibility-reviewer** | WCAG/COGA evaluation, audits output, loops back with fixes |
 | **design-critic** | Reviews against brief, plan, principles; loops back with gaps |
+| **heuristic-evaluator** | Nielsen's 10 heuristics, cognitive walkthroughs, usability |
 
-**27 skills** that enforce a complete design workflow — from discovery through retrospective.
+**29 skills** that enforce a complete design workflow — from discovery through retrospective.
 
 **2 modes** — Direct (you approve every handoff) and Auto (agents run the pipeline, you review at the end).
 
