@@ -1,0 +1,6 @@
+{
+  "name": "designpowers",
+  "version": "1.0.0",
+  "description": "Design workflow for coding agents: discovery, research, strategy, inclusive design, critique, and handoff — enforced automatically",
+  "contextFileName": "GEMINI.md"
+}

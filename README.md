@@ -10,7 +10,7 @@ An agent design team you control. 10 agents that run an inclusive design process
 
 Designpowers is an open, model-agnostic design workflow that gives you a team of 10 design agents. They discover, research, strategise, design, build, review, and hand off — with accessibility woven into every step. The system remembers your aesthetic preferences across projects, argues competing directions when you're unsure, and catches taste mismatches mid-build instead of at the end. You're the creative director. They work for you.
 
-**Works with any AI coding tool.** Designpowers is markdown files — skills, agents, and hooks. It's built as a Claude Code plugin, but the design knowledge works anywhere that reads markdown instructions: Cursor, Windsurf, Copilot, Aider, or any future tool. The design process is the product, not the platform.
+**Works with any AI coding tool.** Designpowers is markdown files — skills, agents, and hooks. It ships as both a Claude Code plugin and a Gemini CLI extension, but the design knowledge works anywhere that reads markdown instructions: Cursor, Windsurf, Copilot, Aider, or any future tool. The design process is the product, not the platform.
 
 ## What You Get
 
@@ -168,6 +168,38 @@ cp -r designpowers/agents/ your-project/agents/
 cp -r designpowers/hooks/ your-project/hooks/
 cp designpowers/CLAUDE.md your-project/CLAUDE.md
 cp -r designpowers/.claude/ your-project/.claude/
+```
+
+### Gemini CLI
+
+Designpowers ships with a Gemini CLI extension alongside the Claude Code plugin. The skills and agents are identical — only the loader differs.
+
+**Option A: Work inside the repo (recommended)**
+
+```bash
+git clone https://github.com/Owl-Listener/designpowers.git
+cd designpowers
+gemini
+```
+
+Gemini CLI auto-loads `GEMINI.md` from the working directory, and `.gemini/settings.json` pins the context file name for this workspace. The welcome screen and onboarding run on your first design-related message.
+
+**Option B: Install as a Gemini CLI extension**
+
+```bash
+gemini extensions install https://github.com/Owl-Listener/designpowers.git
+```
+
+This uses the top-level `gemini-extension.json` manifest, which sets `GEMINI.md` as the extension's context file. Once installed, the workflow activates in any project where you run Gemini CLI.
+
+**Option C: Copy into your own project**
+
+```bash
+git clone https://github.com/Owl-Listener/designpowers.git
+cp -r designpowers/skills/ your-project/skills/
+cp -r designpowers/agents/ your-project/agents/
+cp designpowers/GEMINI.md your-project/GEMINI.md
+cp -r designpowers/.gemini/ your-project/.gemini/
 ```
 
 ### Other AI Tools (Cursor, Windsurf, Copilot, Aider, etc.)
