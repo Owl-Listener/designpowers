@@ -118,6 +118,39 @@ Step 2: [Next action]
   ...
 ```
 
+## URL Discovery Protocol
+
+When evaluating a live website, you must discover real URLs before attempting to fetch any sub-pages. Follow this protocol in order. **Never infer or guess a URL from a nav label, button text, or any other interface element** — a label "Vendre" does not mean the URL is `/vendre`. Guessed URLs produce false 404 findings and damage the credibility of the evaluation.
+
+### Step 1 — Extract hrefs from the page source
+
+When fetching the homepage (or any page), explicitly ask for all `href` attribute values from links and navigation elements — not just the visible text. Prompt:
+
+> "Extract every href value from every `<a>` tag on this page, grouped by navigation section (main nav, footer, CTAs, breadcrumbs). Include both the link text and the full href."
+
+Use only the URLs returned as actual hrefs for any follow-up fetches. Discard any URL you constructed yourself.
+
+### Step 2 — Try sitemap.xml
+
+Fetch `[origin]/sitemap.xml`. If that returns 404, also try `[origin]/sitemap_index.xml`. If a sitemap is found, use it as the authoritative URL list for the site.
+
+### Step 3 — Check robots.txt
+
+Fetch `[origin]/robots.txt`. Look for any `Sitemap:` directives — these point to the canonical sitemap location even when the default `/sitemap.xml` path doesn't exist.
+
+### Step 4 — Accept the limit
+
+If all three steps fail to yield sub-page URLs, **stop trying to fetch sub-pages**. State explicitly in the evaluation: "Sub-page structure could not be verified — evaluation is based on homepage content only." This is an honest finding, not a failure. A site with no discoverable URL structure may itself be a usability or SEO issue worth noting (H1, H10).
+
+### Handling different href types
+
+- **Relative hrefs** (`/acheter`, `../contact`) — resolve against the origin before fetching.
+- **Hash hrefs** (`#section`, `#top`) — anchor links on the same page, not sub-pages. Note them but do not fetch.
+- **JavaScript hrefs** (`href="javascript:void(0)"`, `onclick` handlers, no `href`) — indicate JS-rendered navigation. Flag as a potential SEO and accessibility issue (content unreachable without JS). Do not attempt to fetch.
+- **External hrefs** — only fetch if directly relevant to the evaluation (e.g., a booking engine the site delegates to).
+
+---
+
 ## How You Work
 
 - **Test the actual build, not the spec** — evaluate what was built, not what was planned
