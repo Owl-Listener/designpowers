@@ -3,6 +3,8 @@
 A browsable, offline snapshot of the [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) library (MIT). Use this for **browse mode** — showing the user what's available — without a network call. Each entry is `Display name` · `slug` · one-line character.
 
 - **Fetch URL for any entry:** `https://raw.githubusercontent.com/VoltAgent/awesome-design-md/main/design-md/<slug>/DESIGN.md`
+- **Preview URL (browser, for the human):** `https://getdesign.md/<slug>/design-md`
+- **Synced by:** `scripts/check-library-index.sh` (run weekly in CI) — if this snapshot drifts from upstream, that check fails.
 - **Snapshot:** 73 brands. The **live repo is authoritative** for actual fetches and for new additions — when pulling a file, resolve the slug against the live `design-md/` directory, not just this snapshot. Slugs are exact (note `runwayml`, `bmw-m`, `linear.app`, `mistral.ai`, `together.ai`, `opencode.ai`, `x.ai`, `cal`, `dell-1996`).
 
 ## AI & LLM Platforms

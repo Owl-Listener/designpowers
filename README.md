@@ -243,6 +243,11 @@ Designpowers follows the plugin architecture pioneered by [Superpowers](https://
 
 The inclusive design knowledge draws from W3C standards (WCAG 2.2, COGA, WAI-ARIA), Microsoft's Inclusive Design Toolkit, and the principle that accessibility is a design commitment, not a code review.
 
+### Standards & libraries we build on
+
+- **`DESIGN.md` format** — the project/client design layer uses the open [`DESIGN.md` standard](https://github.com/google-labs-code/design.md) from Google Labs (Apache-2.0), so files interoperate with Stitch, Cursor, Copilot, and any other compatible agent. We adopt the format as-is and add a WCAG accessibility overlay on top.
+- **`awesome-design-md` library** — the design-language library (`design-library` skill) pulls ready-made brand `DESIGN.md` files from [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) (MIT). Those files are community-authored *inspired interpretations* of the named brands, not official brand assets; Designpowers uses them as adaptable references and records their provenance in any file it pulls. All trademarks belong to their respective owners.
+
 ## License
 
 MIT License — see LICENSE file for details.
