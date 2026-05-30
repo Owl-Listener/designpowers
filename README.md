@@ -29,9 +29,9 @@ Designpowers is an open, model-agnostic design workflow that gives you a team of
 | **design-critic** | Reviews against brief, plan, principles; loops back with gaps |
 | **heuristic-evaluator** | Nielsen's 10 heuristics, cognitive walkthroughs, usability |
 
-**32 skills** that enforce a complete design workflow — from discovery through retrospective.
+**33 skills** that enforce a complete design workflow — from discovery through retrospective.
 
-**2 lanes** — Build (design something new through the full pipeline) and Review (audit something you already have — a screenshot, URL, Figma file, or code — without the full build process).
+**2 lanes + an on-ramp** — Build (design something new through the full pipeline), Review (audit something you already have — a screenshot, URL, Figma file, or code — without the full build process), and an Express on-ramp for first-timers (a two-minute quick critique or quick sketch that bridges up into the full team).
 
 **2 modes** — Direct (you approve every handoff) and Auto (agents run the pipeline, you review at the end).
 
@@ -117,6 +117,8 @@ Plus two coordination skills:
 **Review lane** — Most design work is improving what already exists, not starting from a blank page. Drop a screenshot, a URL, a Figma link, or existing code and the three reviewers (accessibility, critic, heuristic) audit it in parallel — reconciling into one prioritised report — without running the full discovery-to-build pipeline. Then fix it, track it as debt, or go deeper.
 
 **Visual bridge** — Designers think visually, and a spec isn't something you can feel. The Figma bridge turns the team's decisions into real Figma frames you can manipulate (built from your tokens and components, not a flat picture), pulls existing Figma files back in for review, and falls back to a clickable HTML prototype when Figma isn't available.
+
+**Express on-ramp** — New to the terminal, or just want a quick win before committing? Express runs a two-minute taster — a plain-language quick read of a screen you drop in, or a fast sketch of one small thing — then offers the door up to the full team. It's a gateway into the process, not a bypass: accessibility is never skipped, output is always labelled "a starting point," and the invitation to go deeper is always there. Offered to first-time users only.
 
 **User as creative director** — You intercept any handoff to correct, add, redirect, or skip. Talk to any agent by name at any time.
 

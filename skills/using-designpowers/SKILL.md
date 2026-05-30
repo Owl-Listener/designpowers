@@ -124,6 +124,19 @@ Use AskUserQuestion with a free-text prompt. Do NOT proceed to any skill or agen
 
 **If Review:** invoke the `design-review` skill. It captures lightweight context and runs the three reviewers in parallel — it does not run discovery, strategy, or build. Do NOT funnel a review request into the full build pipeline.
 
+**Express on-ramp (first-time users only):** if a first-time user seems hesitant, wants something quick ("just take a quick look", "can you knock together a…", "I've only got a minute"), or is clearly new to the terminal, offer the lightweight on-ramp instead of the full lanes:
+
+```
+  Two ways to start small if you'd rather not commit yet:
+
+  ► Drop a screenshot or link and I'll give you a quick read.
+  ► Tell me one small thing to make and I'll sketch it.
+
+  Or we can do the full thing — your call.
+```
+
+If they take it, invoke `design-express`. It runs one tiny loop in plain language and finishes in about two minutes, then offers the door up to the full team. **Returning users skip this** — they know the system; route them to Build or Review.
+
 ### Step 5: Start in Direct Mode (Explain Later)
 
 All sessions start in **Direct mode** by default. Do NOT ask users to choose between Direct and Auto upfront — the choice is meaningless before they've seen a handoff.
@@ -312,6 +325,7 @@ Designpowers has two ways in, chosen at Step 4 of the welcome:
 
 - **Build lane** — design something new. Runs the full workflow below, in order.
 - **Review lane** — evaluate something that already exists, via `design-review`. Skips discovery/strategy/build and runs the three reviewers in parallel. Use it whenever the user has a screenshot, URL, Figma file, or code to critique rather than something to make.
+- **Express on-ramp** — `design-express`, offered to *first-time users only*. A two-minute taster (quick critique or quick sketch) in plain language that bridges up into the Build or Review lane. A gateway into the process, never a replacement for it. Returning users skip it.
 
 ### The Design Workflow (in order)
 
@@ -367,6 +381,7 @@ Accessibility is not a separate step. It is present in every skill. When working
 |----------|-----------|
 | About to write UI code without design-discovery | STOP. Invoke design-discovery first |
 | User shared something that already exists and asked for a review/audit | STOP. Invoke `design-review`, not the build pipeline. Don't run discovery on work that's already built |
+| Using `design-express` as a shortcut to skip discovery on real work | STOP. Express is a first-timer taster, not a bypass. It never skips accessibility, always labels output "a starting point," and always offers the door up. For a returning user or a scoped project, use the full lane |
 | About to make visual design decisions without a taste profile | PAUSE. Ask if the user wants to run taste calibration. Not mandatory, but the design will be stronger with one |
 | Starting a new project without checking for existing taste profile | PAUSE. Invoke design-memory to load existing preferences |
 | Design direction is uncertain with multiple viable options | PAUSE. Invoke design-debate before committing |
