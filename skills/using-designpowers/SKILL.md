@@ -337,6 +337,7 @@ Designpowers has two ways in, chosen at Step 4 of the welcome:
 | Strategy | `design-strategy` | When setting direction, principles, or competitive positioning |
 | Taste | `design-taste` | When calibrating aesthetic direction — references, emotional targets, craft standards, quality bar |
 | Definition | `design-md` | At project start: read a project `DESIGN.md` (the open Google Labs standard) as the authoritative project/client brand layer — or author one. Drives high-fidelity, brand-accurate output |
+| Library | `design-library` | When the user wants to start from a known brand's design language ("use the same design language as Stripe") — pulls a ready-made `DESIGN.md` from the open awesome-design-md library as a starting point, then adapts it |
 | Memory | `design-memory` | At project start (load *personal* taste profile) and project end (consolidate, via the Promotion Gate so client taste never contaminates the profile) |
 | Taste Report | `taste-report` | When the user wants to see how they design — a longitudinal reflection of their personal taste over many projects |
 | Inspiration | `inspiration-scouting` | When the team needs aesthetic references, interaction examples, or visual direction beyond competitive research |
