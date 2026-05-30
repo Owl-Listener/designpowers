@@ -32,7 +32,7 @@ Before showing anything, check for an existing taste profile at `~/.designpowers
   Hey — welcome. You've got a design team now.
 
   Here's how it works: you describe what you want
-  to build, and a team of 9 design agents works
+  to build, and a team of 10 design agents works
   through it — research, strategy, visual design,
   content, accessibility, code. They talk to each
   other, hand off work, and check each other's
@@ -765,7 +765,7 @@ After the team has spoken, show the factual summary:
   • [new taste insights from this project]
 
   MODE: [direct/auto/mixed]
-  Agents used: [X of 9]
+  Agents used: [X of 10]
 ```
 
 #### 5. Design-Lead Asks for Direction

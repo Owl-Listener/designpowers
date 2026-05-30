@@ -1,0 +1,30 @@
+name: Check repo consistency
+
+# Structural consistency: orphaned skills, dead skill references in the router,
+# README skill/agent counts, and "X of N" agent tallies. Runs on every PR and
+# on pushes that touch skills, agents, the README, or the check itself.
+
+on:
+  workflow_dispatch: {}
+  pull_request:
+    paths:
+      - "skills/**"
+      - "agents/**"
+      - "README.md"
+      - "scripts/check-consistency.sh"
+      - ".github/workflows/check-consistency.yml"
+  push:
+    branches: ["main"]
+    paths:
+      - "skills/**"
+      - "agents/**"
+      - "README.md"
+      - "scripts/check-consistency.sh"
+
+jobs:
+  consistency:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run consistency checks
+        run: bash scripts/check-consistency.sh
