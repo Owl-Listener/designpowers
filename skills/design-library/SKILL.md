@@ -28,13 +28,14 @@ The files are organised by category (AI/LLM platforms, Developer tools, Backend/
 
 ## Process
 
-### 1. Resolve the brand to a slug
+### 1. Resolve the brand to a slug — use the pinned index (no network call)
 
-**Slugs are not always the obvious name** — e.g. `runwayml` (not "runway"), `bmw-m`, `linear.app`. Don't guess blindly:
+**Slugs are not always the obvious name** — e.g. `runwayml` (not "runway"), `bmw-m`, `linear.app`, `mistral.ai`. Don't guess blindly:
 
-1. List the available slugs first — fetch the `design-md/` directory listing (GitHub API or a shallow clone) or read the repo `README.md` index — and match the user's brand to a real slug.
-2. If exactly one obvious match, use it. If several plausible matches or none, **show the user the closest options and let them pick** rather than fetching the wrong one.
-3. If the brand isn't in the library, say so and offer the nearest sibling in the same category (e.g. "No Monzo, but Wise and Mastercard are in Fintech — want one of those as the base?") or fall back to `design-taste` to build from scratch.
+1. **Read the pinned index `library-index.md`** (next to this skill) — a curated, offline snapshot of every brand grouped by category, with its exact slug. Match the user's brand to a slug there. No network call needed to browse or resolve.
+2. If exactly one obvious match, use its slug. If several plausible matches or none, **show the user the closest options from the index and let them pick** rather than fetching the wrong one.
+3. If the brand isn't in the index, offer the nearest sibling in the same category (e.g. "No Monzo, but Wise and Mastercard are in Fintech — want one of those as the base?") or fall back to `design-taste` to build from scratch.
+4. The pinned index is a snapshot; the **live repo is authoritative** for actual fetches and may have newer additions. If a user names something not in the snapshot, you may check the live `design-md/` directory before giving up.
 
 ### 2. Fetch the DESIGN.md
 
@@ -55,9 +56,9 @@ These are **community-authored, *inspired* interpretations** — the files even 
 3. **Run the accessibility overlay** (`design-md`) — a library file is not guaranteed WCAG-compliant. Validate its colour pairings and type scale; flag and adjust anything that fails. Accessibility wins over the borrowed brand.
 4. **Never promote it to personal taste.** Borrowing Stripe's language tells you nothing about *the designer's* taste — the `design-memory` Promotion Gate keeps it out of `~/.designpowers/taste-profile.md`.
 
-### 5. Browse mode
+### 5. Browse mode (offline)
 
-If the user just wants to explore ("what can I borrow from?"), list the categories and a sampling of brands, and point them at the previews. Offer to pull any one as a base.
+If the user just wants to explore ("what can I borrow from?"), **read `library-index.md`** and show the categories and brands from it — no network call. The index groups all brands (AI/LLM, Developer tools, Backend/DevOps, Productivity/SaaS, Design tools, Fintech/Crypto, E-commerce, Media/Consumer, Automotive, Retro Web) with a one-line character each, so you can present a tight menu and let the user pick. Offer to pull any one as a base (step 2 onward). For a live, always-current listing, point them at the [library repo](https://github.com/VoltAgent/awesome-design-md) and its HTML previews.
 
 ## Attribution & Licence
 
@@ -65,7 +66,8 @@ The library is **MIT-licensed** (© VoltAgent). Reuse is free; keep the provenan
 
 ## Integration
 
-- **Resolves & fetches from:** `VoltAgent/awesome-design-md` (raw GitHub)
+- **Browses & resolves via:** `library-index.md` (pinned, offline snapshot — no network call to list or pick)
+- **Fetches the chosen file from:** `VoltAgent/awesome-design-md` (raw GitHub) — network only at pull time
 - **Hands the file to:** `design-md` (loads as project taste layer, runs the accessibility overlay)
 - **Discipline shared with:** `inspiration-scouting` (what to take / what to leave — adapt, don't copy)
 - **Never writes to:** `~/.designpowers/taste-profile.md` (Promotion Gate — borrowed brand ≠ personal taste)
