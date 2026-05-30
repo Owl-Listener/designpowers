@@ -75,7 +75,7 @@ Evaluate the workflow itself, not just the output:
 ### Process Assessment
 
 **Pipeline efficiency:**
-- Agents dispatched: [X of 9]
+- Agents dispatched: [X of 10]
 - Agents skipped: [list and why]
 - Fix rounds: [count] — [were they necessary or preventable?]
 - Mode used: [direct/auto/mixed] — [did the mode serve the project?]
@@ -178,7 +178,7 @@ Compile everything into a single document:
 **Date:** [YYYY-MM-DD]
 **Duration:** [How long the project ran]
 **Mode:** [direct/auto/mixed]
-**Agents used:** [X of 9]
+**Agents used:** [X of 10]
 
 ## Summary
 [3-5 sentences: what was built, what worked, what was hard, what we learned]
@@ -240,7 +240,7 @@ Show the retrospective to the user as a summary:
   EFFICIENCY:
   • Fix rounds: [count]
   • User overrides: [count]
-  • Agents used: [X of 9]
+  • Agents used: [X of 10]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   Your taste profile has been updated.
