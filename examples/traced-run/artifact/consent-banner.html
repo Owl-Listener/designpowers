@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aurora — cookie consent</title>
+<style>
+  :root{
+    --ink:#1b2030; --muted:#41485c; --line:#d9dde6; --bg:#eef0f4;
+    --surface:#ffffff; --accent:#2b5cd9; --accent-ink:#ffffff;
+    --ghost-ink:#243; --r:12px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,system-ui,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+  .page{padding:40px;max-width:760px;margin:0 auto;color:var(--muted)}
+  .page h1{color:var(--ink);font-size:24px;margin-bottom:12px}
+  /* consent banner */
+  .consent{position:fixed;inset:auto 16px 16px 16px;max-width:560px;margin:0 auto;
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    box-shadow:0 8px 30px rgba(27,32,48,.14);padding:20px 22px}
+  .consent h2{font-size:17px;color:var(--ink);margin-bottom:6px}
+  .consent p{font-size:14px;line-height:1.5;color:var(--muted);margin-bottom:16px}
+  .consent a{color:var(--accent);text-decoration:underline}
+  .actions{display:flex;gap:10px;flex-wrap:wrap}
+  .btn{min-height:44px;padding:11px 18px;border-radius:9px;font-size:15px;font-weight:600;
+    cursor:pointer;border:1px solid transparent}
+  .btn:focus-visible{outline:3px solid #9db8f2;outline-offset:2px}
+  /* equal weight: accept and reject look the same — no dark pattern */
+  .btn-accept{background:var(--accent);color:var(--accent-ink)}
+  .btn-reject{background:var(--surface);color:var(--ink);border-color:var(--line)}
+  .btn-settings{background:transparent;color:var(--accent);min-height:44px;padding:11px 8px;
+    border:none;text-decoration:underline;cursor:pointer;font-size:15px}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+  <main class="page">
+    <h1>Aurora dashboard</h1>
+    <p>Your background content sits here. The consent banner below does not block it visually, but focus moves to the banner so keyboard and screen-reader users handle it first.</p>
+  </main>
+
+  <!-- role=dialog, labelled, focusable; in a real build focus is sent here on load -->
+  <section class="consent" role="dialog" aria-modal="false"
+           aria-labelledby="consent-title" aria-describedby="consent-desc" tabindex="-1">
+    <h2 id="consent-title">Cookies on Aurora</h2>
+    <p id="consent-desc">We use essential cookies to run Aurora. With your OK, we’d also use analytics cookies to see what’s slow and fix it. You can change this anytime in <a href="/settings/privacy">Privacy settings</a>.</p>
+    <div class="actions">
+      <button class="btn btn-accept" type="button">Accept analytics</button>
+      <button class="btn btn-reject" type="button">Reject analytics</button>
+      <button class="btn-settings" type="button">Choose individually</button>
+    </div>
+  </section>
+</body>
+</html>

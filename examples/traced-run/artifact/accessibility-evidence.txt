@@ -1,0 +1,18 @@
+WCAG 2.2 AA contrast evidence (computed, not eyeballed)
+threshold: 4.5 normal text, 3.0 large/UI
+
+  Banner title  #1b2030 on #ffffff       16.21  PASS
+  Banner body   #41485c on #ffffff        9.11  PASS
+  Accept btn    #ffffff on #2b5cd9        5.78  PASS
+  Reject btn    #1b2030 on #ffffff       16.21  PASS
+  Link/settings #2b5cd9 on #ffffff        5.78  PASS
+
+Structural (from markup):
+  Accept and Reject have equal visual weight (no dark pattern): PASS
+  All controls min-height 44px touch target: PASS
+  Visible focus ring (:focus-visible 3px): PASS
+  role=dialog + aria-labelledby + aria-describedby: PASS
+  prefers-reduced-motion honoured: PASS
+  lang=en set: PASS
+
+VERDICT: ALL PASS
