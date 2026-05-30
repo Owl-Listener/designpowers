@@ -58,7 +58,7 @@ Ask exactly one: **"What's the single thing someone's meant to do on this screen
 Do a single consolidated pass — not three parallel agents, not reconciliation. Cover the big three in plain language, worst/plainest first, **max ~5 findings**, ranked:
 
 - **Does it work?** (can a person do the one thing — clarity, the obvious next action)
-- **Can everyone use it?** (the accessibility line that stays in — contrast, labels, colour-only meaning, target size — said in plain words)
+- **Can everyone use it?** (the accessibility line that stays in — contrast, labels, colour-only meaning, target size — said in plain words). **Verify, don't eyeball** — where you can measure (e.g. compute the contrast ratio of a colour pair), do it. Guessing contrast from a screenshot is unreliable, and "evidence over claims" applies even in express.
 - **Does it look intentional?** (craft — hierarchy, spacing, does it feel considered)
 
 ```
@@ -103,7 +103,7 @@ Take whatever they give. Don't interrogate.
 
 Produce **one** result fast:
 - Apply **design-lead**-style visual decisions and **content-writer**-style real copy (never lorem ipsum).
-- **Run a quick accessibility check** — contrast, labels, focus, target size, reduced motion. This is the line that does not move. If something fails, fix it before showing — don't ship an inaccessible "quick" result.
+- **Run a quick accessibility check, and actually verify it** — contrast, labels, focus, target size, reduced motion. Don't just claim it: if you've rendered the artefact, check it for real (measure the contrast ratios, confirm inputs have labels and a visible focus state). This is the line that does not move. If something fails, fix it before showing — don't ship an inaccessible "quick" result.
 - Render it via **`figma-bridge`**: a clickable HTML prototype, or a Figma frame if Figma tooling is available. Something the user can actually see and click, not a description.
 
 ### B4. Show it, label it, bridge up
