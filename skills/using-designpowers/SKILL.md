@@ -297,15 +297,20 @@ Before responding to ANY message — including clarifying questions — check wh
 | Debate | `design-debate` | When a design direction is uncertain and competing approaches should be argued before committing |
 | Plan | `writing-design-plans` | When a design spec exists and implementation needs breaking down |
 | UI | `ui-composition` | When building layouts, color, typography, visual hierarchy |
+| Responsive | `responsive-patterns` | When the layout must work across the device spectrum — breakpoint strategy, content reflow, fluid type, container queries |
 | Interaction | `interaction-design` | When designing states, transitions, feedback, error handling |
+| Motion | `motion-choreography` | When designing animation sequences, transitions, micro-interactions, or loading states — and ensuring reduced-motion safety |
 | Content | `accessible-content` | When writing or structuring any user-facing content |
+| Voice | `voice-and-tone` | When establishing or applying brand voice — voice attributes, tone by context, vocabulary, consistent personality |
 | Cognition | `cognitive-accessibility` | When evaluating mental load, wayfinding, focus management |
 | Adaptation | `adaptive-interfaces` | When designing for user preferences, motion sensitivity, flexibility |
 | Systems | `design-system-alignment` | When working with or building design tokens and components |
+| Tokens | `token-architecture` | When building or restructuring a token system — global/semantic/component layers, naming, theming, multi-platform |
 | Taste Check | `taste-feedback` | During build phase — shows intermediate visual output for mid-flight taste correction |
 | Heuristic | `heuristic-evaluation` | After build — dispatches heuristic-evaluator agent for Nielsen's 10 + cognitive walkthrough, runs in parallel with critic and accessibility-reviewer |
 | Critique | `designpowers-critique` | When reviewing design work against the plan |
 | Synthetic Test | `synthetic-user-testing` | After fix round — walks through key tasks as each persona to validate the design works for real people in real conditions |
+| Usability Test | `usability-testing` | When planning or conducting tests with real participants — test scripts, tasks, recruitment, analysing findings into design actions |
 | Debt | `design-debt-tracker` | After reviews produce deferred findings, at project start to review accumulated debt, or when deciding what to fix next |
 | Handoff | `design-handoff` | When preparing specifications for engineering |
 | State | `design-state` | When any agent starts or completes work — maintains the shared design state |
