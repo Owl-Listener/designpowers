@@ -5,7 +5,7 @@
 #   1. Orphaned skills   — a skill dir with no trigger reference in the router
 #   2. Dead skill refs   — a router *table row* points at a skills/<x> that is missing
 #   3. README counts     — "N skills" / "N agents" must match what's on disk
-#   4. Agent tallies     — "X of N" templates must use the real agent count
+#   4. Agent tallies     — "Agents used/dispatched: [X of N]" must use the real agent count
 #
 # Exits non-zero on any problem so CI can gate on it. Pure bash + grep.
 set -uo pipefail
@@ -60,13 +60,15 @@ else
   note "README not found (skipped)"
 fi
 
-# 4. Stale "X of N" agent tallies across skills
-echo ""; echo "[4] Agent tallies ('of N' templates):"
+# 4. Stale agent tallies. Only lines that explicitly tally agents
+#    ("Agents used: [X of N]" / "Agents dispatched: [X of N]") are checked, so
+#    unrelated counts like "[X of 3] debt items" or "Persona 2 of 3" are ignored.
+echo ""; echo "[4] Agent tallies (Agents used/dispatched: [X of N]):"
 bad=0
-while IFS= read -r tally; do
-  n=$(echo "$tally" | grep -oE '[0-9]+')
-  [ -n "$n" ] && [ "$n" != "$agent_count" ] && { note "STALE: '$tally' (agents=$agent_count)"; bad=1; fail=1; }
-done < <(grep -rhoE 'of [0-9]+\]' "$ROOT"/skills/*/SKILL.md 2>/dev/null | sort -u)
+while IFS= read -r line; do
+  n=$(printf '%s' "$line" | grep -oE 'of [0-9]+' | grep -oE '[0-9]+' | head -1)
+  [ -n "$n" ] && [ "$n" != "$agent_count" ] && { note "STALE: '$(printf '%s' "$line" | sed 's/^ *//')' (agents=$agent_count)"; bad=1; fail=1; }
+done < <(grep -rhiE 'Agents (used|dispatched):? *\[?X? *of [0-9]+' "$ROOT"/skills 2>/dev/null | sort -u)
 [ "$bad" -eq 0 ] && note "none"
 
 echo ""
