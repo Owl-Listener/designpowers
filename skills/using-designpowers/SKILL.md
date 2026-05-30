@@ -87,9 +87,30 @@ If the user does not choose, default to "I'm ready to go."
 
 Returning users skip this step entirely — they've seen it.
 
-### Step 4: Ask What to Design
+### Step 4: Build or Review?
 
-Ask the user what they want to build. Keep it conversational:
+Designpowers has two lanes. Find out which one the user wants before routing:
+
+- **Build** — design something new, from a blank page. Runs the full pipeline (discovery → … → ship).
+- **Review** — evaluate something that already exists (a screenshot, URL, Figma file, or code). Runs the critique-only lane via the `design-review` skill.
+
+Most of the time the user's first message already tells you which. If they describe something they want to make ("I'm designing onboarding for…"), that's Build. If they share or point at something that exists ("review this", "what's wrong with this screen", a URL, a Figma link, a screenshot), that's Review. Route accordingly without asking.
+
+**If it's genuinely ambiguous**, ask one question — do not guess:
+
+```
+  Two ways I can help:
+
+  ► Design something new — I'll run the full team
+    from discovery to handoff.
+  ► Review something you already have — drop a
+    screenshot, URL, Figma link, or code and the
+    reviewers will audit it.
+
+  Which fits?
+```
+
+**If Build:** ask what they want to make. Keep it conversational:
 
 ```
   What are we designing?
@@ -100,6 +121,8 @@ Ask the user what they want to build. Keep it conversational:
 ```
 
 Use AskUserQuestion with a free-text prompt. Do NOT proceed to any skill or agent until the user has described what they want to build.
+
+**If Review:** invoke the `design-review` skill. It captures lightweight context and runs the three reviewers in parallel — it does not run discovery, strategy, or build. Do NOT funnel a review request into the full build pipeline.
 
 ### Step 5: Start in Direct Mode (Explain Later)
 
@@ -283,6 +306,13 @@ Before responding to ANY message — including clarifying questions — check wh
 
 ## Available Skills
 
+### Entry Modes
+
+Designpowers has two ways in, chosen at Step 4 of the welcome:
+
+- **Build lane** — design something new. Runs the full workflow below, in order.
+- **Review lane** — evaluate something that already exists, via `design-review`. Skips discovery/strategy/build and runs the three reviewers in parallel. Use it whenever the user has a screenshot, URL, Figma file, or code to critique rather than something to make.
+
 ### The Design Workflow (in order)
 
 | Phase | Skill | When It Triggers |
@@ -335,6 +365,7 @@ Accessibility is not a separate step. It is present in every skill. When working
 | Red Flag | What To Do |
 |----------|-----------|
 | About to write UI code without design-discovery | STOP. Invoke design-discovery first |
+| User shared something that already exists and asked for a review/audit | STOP. Invoke `design-review`, not the build pipeline. Don't run discovery on work that's already built |
 | About to make visual design decisions without a taste profile | PAUSE. Ask if the user wants to run taste calibration. Not mandatory, but the design will be stronger with one |
 | Starting a new project without checking for existing taste profile | PAUSE. Invoke design-memory to load existing preferences |
 | Design direction is uncertain with multiple viable options | PAUSE. Invoke design-debate before committing |
