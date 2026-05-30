@@ -20,8 +20,9 @@ For a one-off aesthetic reference on a single component, `inspiration-scouting` 
 ## The Library
 
 - **Repo:** `VoltAgent/awesome-design-md` (MIT)
-- **Path convention:** `design-md/<slug>/DESIGN.md` (each brand folder also has a `README.md` and HTML previews)
-- **Raw URL:** `https://raw.githubusercontent.com/VoltAgent/awesome-design-md/main/design-md/<slug>/DESIGN.md`
+- **Path convention:** `design-md/<slug>/DESIGN.md` (each brand folder also has a `README.md`)
+- **Raw URL (to fetch the file):** `https://raw.githubusercontent.com/VoltAgent/awesome-design-md/main/design-md/<slug>/DESIGN.md`
+- **Preview (for the human to view in a browser):** `https://getdesign.md/<slug>/design-md` — the upstream hosted page. Note: it blocks scripted access, so it's a link to hand the user, not something the agent fetches.
 - **Format:** standard `DESIGN.md` — YAML front-matter tokens + the required markdown sections (see `design-md`). Many include extra sections like *Responsive Behavior* and *Iteration Guide*.
 
 The files are organised by category (AI/LLM platforms, Developer tools, Backend/DevOps, Productivity/SaaS, Design tools, Fintech/Crypto, E-commerce, Media/Consumer, Automotive, Retro Web).
@@ -56,9 +57,16 @@ These are **community-authored, *inspired* interpretations** — the files even 
 3. **Run the accessibility overlay** (`design-md`) — a library file is not guaranteed WCAG-compliant. Validate its colour pairings and type scale; flag and adjust anything that fails. Accessibility wins over the borrowed brand.
 4. **Never promote it to personal taste.** Borrowing Stripe's language tells you nothing about *the designer's* taste — the `design-memory` Promotion Gate keeps it out of `~/.designpowers/taste-profile.md`.
 
-### 5. Browse mode (offline)
+### 5. Browse mode (offline) — and let them *see* before picking
 
-If the user just wants to explore ("what can I borrow from?"), **read `library-index.md`** and show the categories and brands from it — no network call. The index groups all brands (AI/LLM, Developer tools, Backend/DevOps, Productivity/SaaS, Design tools, Fintech/Crypto, E-commerce, Media/Consumer, Automotive, Retro Web) with a one-line character each, so you can present a tight menu and let the user pick. Offer to pull any one as a base (step 2 onward). For a live, always-current listing, point them at the [library repo](https://github.com/VoltAgent/awesome-design-md) and its HTML previews.
+If the user just wants to explore ("what can I borrow from?"), **read `library-index.md`** and show the categories and brands from it — no network call. The index groups all brands (AI/LLM, Developer tools, Backend/DevOps, Productivity/SaaS, Design tools, Fintech/Crypto, E-commerce, Media/Consumer, Automotive, Retro Web) with a one-line character each, so you can present a tight menu and let the user pick.
+
+**Let them preview before committing — two ways:**
+
+1. **Hosted page (in their browser):** give the user the preview link `https://getdesign.md/<slug>/design-md` so they can see the brand's design language rendered. (The agent can't fetch it — it blocks bots — so this is a link to hand over, not to screenshot.)
+2. **In-session specimen (tool-native):** if the user would rather not leave the terminal, fetch the brand's `DESIGN.md` (step 2) and use `figma-bridge` to render a quick **specimen** from its tokens — colour swatches, type ramp, a sample button/card — so they see the palette and type personality at a glance before deciding. This works offline-of-getdesign.md and is the better preview when the user is mid-flow.
+
+Then offer to pull the chosen one as a base (step 2 onward). For a live, always-current listing, point them at the [library repo](https://github.com/VoltAgent/awesome-design-md).
 
 ## Attribution & Licence
 

@@ -1,0 +1,23 @@
+name: Check design library index
+
+# Keeps the pinned offline index (skills/design-library/library-index.md) in
+# sync with the upstream VoltAgent/awesome-design-md library. Runs weekly to
+# catch upstream additions/removals, and on any PR that touches the skill.
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # every Monday 06:00 UTC
+  workflow_dispatch: {}
+  pull_request:
+    paths:
+      - "skills/design-library/**"
+      - "scripts/check-library-index.sh"
+      - ".github/workflows/check-library-index.yml"
+
+jobs:
+  check-index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate pinned library index against upstream
+        run: bash scripts/check-library-index.sh
