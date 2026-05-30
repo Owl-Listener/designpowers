@@ -29,7 +29,7 @@ Designpowers is an open, model-agnostic design workflow that gives you a team of
 | **design-critic** | Reviews against brief, plan, principles; loops back with gaps |
 | **heuristic-evaluator** | Nielsen's 10 heuristics, cognitive walkthroughs, usability |
 
-**33 skills** that enforce a complete design workflow — from discovery through retrospective.
+**35 skills** that enforce a complete design workflow — from discovery through retrospective.
 
 **2 lanes + an on-ramp** — Build (design something new through the full pipeline), Review (audit something you already have — a screenshot, URL, Figma file, or code — without the full build process), and an Express on-ramp for first-timers (a two-minute quick critique or quick sketch that bridges up into the full team).
 
@@ -101,6 +101,12 @@ Plus two coordination skills:
 **Design taste** — The system prompts you for your aesthetic instincts: references you admire, how it should feel, what you'd hate. Upload an existing design system and it extracts the taste signals already embedded in your tokens and palette. Share your own thoughts and the agents carry your judgment through every decision. The more taste you give, the better the output — but the system works without it too. Your taste is the difference between correct and compelling.
 
 **Design memory** — Your taste profile persists across projects. Strong opinions (confirmed across multiple projects), soft patterns (hypotheses), and anti-patterns (things you've rejected) accumulate over time. Each new project starts with what the system already knows about you. You stop repeating yourself.
+
+**Two taste layers — your taste vs. the client's.** Personal taste (how *you* decide, portable across clients) is kept strictly separate from project taste (what *this* client needs). A **Promotion Gate** ensures a client's brand never contaminates your personal profile — so working for ten different clients doesn't turn your taste memory to mush. Client taste lives in a `DESIGN.md`; only your own portable instincts accumulate.
+
+**Reads & writes `DESIGN.md`** — Designpowers adopts [Google Labs' open `DESIGN.md` standard](https://github.com/google-labs-code/design.md) (Apache-2.0) as the project/client design source of truth: machine-readable tokens in YAML front matter plus human-readable rationale. Drop one in and the team builds brand-accurate, high-fidelity output from real values instead of guessing — and the same file interoperates with Stitch, Cursor, Copilot, and any other compatible agent. Designpowers layers a WCAG accessibility check on top, since the standard describes brand, not access.
+
+**Taste report** — Ask "how do I design?" and the system reads your accumulated personal profile and reflects it back: how you decide, what you reach for, what you reject, how your taste is evolving, and your possible blind spots. It turns taste memory from a lookup table into a mirror.
 
 **Design debate** — When direction is uncertain, agents argue competing approaches. Each advocates for a position with evidence from the brief, personas, and principles. They cross-examine each other's arguments. You see the trade-offs and decide. Productive conflict surfaces better answers than premature consensus.
 

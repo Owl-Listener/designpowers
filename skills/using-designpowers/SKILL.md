@@ -336,7 +336,9 @@ Designpowers has two ways in, chosen at Step 4 of the welcome:
 | Personas | `inclusive-personas` | When defining who the design serves |
 | Strategy | `design-strategy` | When setting direction, principles, or competitive positioning |
 | Taste | `design-taste` | When calibrating aesthetic direction — references, emotional targets, craft standards, quality bar |
-| Memory | `design-memory` | At project start (load taste profile) and project end (consolidate taste learnings) |
+| Definition | `design-md` | At project start: read a project `DESIGN.md` (the open Google Labs standard) as the authoritative project/client brand layer — or author one. Drives high-fidelity, brand-accurate output |
+| Memory | `design-memory` | At project start (load *personal* taste profile) and project end (consolidate, via the Promotion Gate so client taste never contaminates the profile) |
+| Taste Report | `taste-report` | When the user wants to see how they design — a longitudinal reflection of their personal taste over many projects |
 | Inspiration | `inspiration-scouting` | When the team needs aesthetic references, interaction examples, or visual direction beyond competitive research |
 | Debate | `design-debate` | When a design direction is uncertain and competing approaches should be argued before committing |
 | Plan | `writing-design-plans` | When a design spec exists and implementation needs breaking down |
