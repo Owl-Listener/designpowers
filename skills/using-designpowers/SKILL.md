@@ -343,6 +343,7 @@ Designpowers has two ways in, chosen at Step 4 of the welcome:
 | Usability Test | `usability-testing` | When planning or conducting tests with real participants — test scripts, tasks, recruitment, analysing findings into design actions |
 | Debt | `design-debt-tracker` | After reviews produce deferred findings, at project start to review accumulated debt, or when deciding what to fix next |
 | Handoff | `design-handoff` | When preparing specifications for engineering |
+| Visualise | `figma-bridge` | When the user wants to SEE or manipulate the work — push specs/code into real Figma frames, pull a Figma file in, or generate a clickable HTML prototype when Figma isn't available |
 | State | `design-state` | When any agent starts or completes work — maintains the shared design state |
 | Verify | `verification-before-shipping` | Before declaring any design work complete |
 | Retrospective | `design-retrospective` | After shipping — structured reflection that feeds learnings back into design-memory |
@@ -567,6 +568,8 @@ After **design-builder** completes the build (before dispatching reviewers), the
 4. In **auto mode**: take the screenshot, log it, but continue without pausing (unless the build visibly failed — blank page, crash, etc.)
 
 This catches visual issues before reviewers spend time on code analysis. A 5-second visual check prevents wasted review cycles.
+
+**Make it manipulable, not just viewable.** If the user wants more than a static screenshot — to actually click through or edit the design — invoke `figma-bridge` to push the build into real Figma frames or generate a clickable HTML prototype. A designer reacting to something they can touch gives far better feedback than one reacting to an image.
 
 ## Skip-Agent Warning
 

@@ -29,7 +29,9 @@ Designpowers is an open, model-agnostic design workflow that gives you a team of
 | **design-critic** | Reviews against brief, plan, principles; loops back with gaps |
 | **heuristic-evaluator** | Nielsen's 10 heuristics, cognitive walkthroughs, usability |
 
-**29 skills** that enforce a complete design workflow — from discovery through retrospective.
+**32 skills** that enforce a complete design workflow — from discovery through retrospective.
+
+**2 lanes** — Build (design something new through the full pipeline) and Review (audit something you already have — a screenshot, URL, Figma file, or code — without the full build process).
 
 **2 modes** — Direct (you approve every handoff) and Auto (agents run the pipeline, you review at the end).
 
@@ -111,6 +113,10 @@ Plus two coordination skills:
 **Design retrospective** — After shipping, structured reflection on what worked, what didn't, what taste decisions landed, and what to carry forward. Feeds learnings back into design memory so the next project is sharper.
 
 **Agent babble** — Agents write conversational handoff messages to each other. You see the relay. It's like watching your team think out loud.
+
+**Review lane** — Most design work is improving what already exists, not starting from a blank page. Drop a screenshot, a URL, a Figma link, or existing code and the three reviewers (accessibility, critic, heuristic) audit it in parallel — reconciling into one prioritised report — without running the full discovery-to-build pipeline. Then fix it, track it as debt, or go deeper.
+
+**Visual bridge** — Designers think visually, and a spec isn't something you can feel. The Figma bridge turns the team's decisions into real Figma frames you can manipulate (built from your tokens and components, not a flat picture), pulls existing Figma files back in for review, and falls back to a clickable HTML prototype when Figma isn't available.
 
 **User as creative director** — You intercept any handoff to correct, add, redirect, or skip. Talk to any agent by name at any time.
 
