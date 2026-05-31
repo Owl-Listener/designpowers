@@ -113,7 +113,9 @@ Beyond the core pipeline above, these skills cover alternative entry points and 
 
 ## Key Features
 
-**Design taste** — The system prompts you for your aesthetic instincts: references you admire, how it should feel, what you'd hate. Upload an existing design system and it extracts the taste signals already embedded in your tokens and palette. Share your own thoughts and the agents carry your judgment through every decision. The more taste you give, the better the output — but the system works without it too. Your taste is the difference between correct and compelling.
+**Design taste** — The system prompts you for your aesthetic instincts: references you admire, how it should feel, what you'd hate. Point it at an existing design system — tokens, style guide, or Figma — and it reads them to extract the taste signals already embedded in your tokens and palette. Share your own thoughts and the agents carry your judgment through every decision. The more taste you give, the better the output — but the system works without it too. Your taste is the difference between correct and compelling.
+
+**Open `DESIGN.md` standard** — Designpowers reads and authors `DESIGN.md`, the open Apache-2.0 design-system format from Google Labs (Stitch). Point it at a project's `DESIGN.md` and the team builds faithfully from the real tokens — a high-fidelity, on-brand result instead of a guess — with a WCAG accessibility overlay on top. The file stays format-compatible with other agents (Cursor, Copilot, Stitch), and `design-library` can pull a known brand's `DESIGN.md` off the shelf as a starting point.
 
 **Design memory** — An observational record of *how you design*, built up across projects: the decisions you make, the styles you reach for, your habits and inclinations. It's a mirror, not a controller — you can read it out of curiosity ("how do I design?"), but it is **never fed back to steer the work**. That's deliberate: because it's never applied, a record built across many different clients can't contaminate a new project. Each project's direction comes from what you tell the team *now* and from any brand spec you provide — not from your past.
 
