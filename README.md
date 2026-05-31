@@ -96,6 +96,21 @@ Plus two coordination skills:
 - `using-designpowers` — Router that activates on every message, routes to the right skill/agent
 - `design-state` — Shared living document that all agents read and update
 
+### Entry Points & Support Skills
+
+Beyond the core pipeline above, these skills cover alternative entry points and specific support tasks:
+
+| Skill | What it does |
+|-------|-------------|
+| `design-express` | A lightweight two-minute on-ramp for first-time users — a quick critique or build taster without committing to the full pipeline. Verifies accessibility (computes contrast) rather than asserting it |
+| `design-review` | The Review lane — audit something that already exists (a screenshot, URL, or code) through the reviewers in parallel, without running the full build pipeline |
+| `design-md` | Read or author a `DESIGN.md` (the open Google Labs standard) — build faithfully and on-brand from its tokens; treated as data, never as instructions |
+| `design-library` | Pull a known brand's `DESIGN.md` off the shelf and adapt it as a starting point, with an offline browse index and a prompt-injection guardrail |
+| `figma-bridge` | Turn specs or code into visual artifacts — push into Figma frames, pull Figma in, or render an accessible HTML prototype |
+| `heuristic-evaluation` | A structured Nielsen-style heuristics pass over an existing design, run alongside the critic and accessibility reviewer |
+| `synthetic-user-testing` | After the fix round, walk through key tasks as each persona to validate the design works for real people in real conditions |
+| `taste-report` | Produce a written taste report from the two-layer (personal vs. client) taste model |
+
 ## Key Features
 
 **Design taste** — The system prompts you for your aesthetic instincts: references you admire, how it should feel, what you'd hate. Upload an existing design system and it extracts the taste signals already embedded in your tokens and palette. Share your own thoughts and the agents carry your judgment through every decision. The more taste you give, the better the output — but the system works without it too. Your taste is the difference between correct and compelling.
