@@ -1,0 +1,29 @@
+name: Check MCP tools
+
+# Tests the v2 truth-layer MCP tools: the pure WCAG logic and a live MCP
+# round-trip against the server. Runs on PRs and pushes touching the tools.
+
+on:
+  workflow_dispatch: {}
+  pull_request:
+    paths:
+      - "mcp-tools/**"
+      - ".github/workflows/check-mcp-tools.yml"
+  push:
+    branches: ["main"]
+    paths:
+      - "mcp-tools/**"
+
+jobs:
+  accessibility-tool:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mcp-tools/accessibility
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm install
+      - run: npm test

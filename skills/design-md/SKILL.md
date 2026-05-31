@@ -84,7 +84,7 @@ The standard ships a CLI (run via `npx`): `lint` (validate structure), `export` 
 
 The standard describes brand, not access. Designpowers layers WCAG on top — **accessibility wins over brand**:
 
-- When loading a `DESIGN.md`, **check its colour pairings against WCAG 2.2 AA** (text/background contrast, state colours). If a brand token can't meet contrast in a given use, flag it and adjust (larger size, weight, or a non-colour cue), then note the deviation to the user.
+- When loading a `DESIGN.md`, **check its colour pairings against WCAG 2.2 AA** (text/background contrast, state colours). **Measure, don't estimate:** if the Designpowers accessibility MCP tool is available (`check_contrast` / `check_palette`, see `mcp-tools/accessibility/`), call it to get measured ratios rather than guessing from the hex values — that's evidence, not judgment. If a brand token can't meet contrast in a given use, flag it and adjust (larger size, weight, or a non-colour cue), then note the deviation to the user.
 - Confirm the `typography` scale supports 200% zoom and that components don't rely on colour alone.
 - Record any brand-vs-access tension in `design-state.md`. Never silently ship an inaccessible token just because the brand specified it.
 
