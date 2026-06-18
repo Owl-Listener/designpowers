@@ -13,7 +13,7 @@
  * because SVG fills need raw colours, not utility classes.
  */
 
-const C = {
+export const C = {
   ink: "#15130F",
   sage: "#9DB4A6",
   forest: "#1E5C3A",
@@ -41,8 +41,8 @@ const TILES: [string, string][] = [
 
 type ShapeFn = (color: string) => React.ReactNode;
 
-/** Eight simple, geometric marks in the spirit of the reference art. */
-const SHAPES: ShapeFn[] = [
+/** Eight simple, geometric marks. Exported so motifs can draw them bare. */
+export const SHAPES: ShapeFn[] = [
   // 0 — sunburst
   (c) => (
     <g fill={c}>
