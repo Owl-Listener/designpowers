@@ -40,6 +40,54 @@
   }
 }
 
+@layer utilities {
+  /*
+   * The "string" animation. Two things happen, both gentle:
+   *  1. the dashes march along the path (stroke-dashoffset) so the candy
+   *     string appears to snake through its own loop;
+   *  2. the whole string sways a touch (translate + a hair of rotation).
+   * The dash period is 32 (14 + 18), so offsetting by -32 loops seamlessly.
+   * Both strokes shift by the same amount to stay interleaved.
+   */
+  @keyframes string-march-a {
+    from {
+      stroke-dashoffset: 0;
+    }
+    to {
+      stroke-dashoffset: -32;
+    }
+  }
+  @keyframes string-march-b {
+    from {
+      stroke-dashoffset: 16;
+    }
+    to {
+      stroke-dashoffset: -16;
+    }
+  }
+  @keyframes string-sway {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+    50% {
+      transform: translate3d(-1%, 7px, 0) rotate(0.7deg);
+    }
+  }
+
+  .string-march-a {
+    animation: string-march-a 6s linear infinite;
+  }
+  .string-march-b {
+    animation: string-march-b 6s linear infinite;
+  }
+  .string-sway {
+    animation: string-sway 9s ease-in-out infinite;
+    transform-origin: center;
+    will-change: transform;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

@@ -21,11 +21,12 @@ export function DashedPath({ className = "" }: { className?: string }) {
     <svg
       viewBox="0 0 500 170"
       preserveAspectRatio="none"
-      className={className}
+      className={`string-sway ${className}`}
       aria-hidden="true"
       focusable="false"
     >
       <path
+        className="string-march-a"
         d={d}
         fill="none"
         stroke={C.teal}
@@ -34,6 +35,7 @@ export function DashedPath({ className = "" }: { className?: string }) {
         strokeDasharray="14 18"
       />
       <path
+        className="string-march-b"
         d={d}
         fill="none"
         stroke={C.magenta}
