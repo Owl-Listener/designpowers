@@ -67,6 +67,22 @@ function extractFrontmatter(source: string): string | null {
 }
 
 /**
+ * Normalize the optional `updated` field. YAML parses an unquoted date
+ * (e.g. `updated: 2026-06-16`) into a JS Date, but a quoted one stays a
+ * string — so we accept both and emit a plain YYYY-MM-DD string. Anything
+ * else is dropped.
+ */
+function normalizeUpdated(value: unknown): string | undefined {
+  if (value instanceof Date && !Number.isNaN(value.getTime())) {
+    return value.toISOString().slice(0, 10);
+  }
+  if (typeof value === "string" && value.trim() !== "") {
+    return value.trim();
+  }
+  return undefined;
+}
+
+/**
  * Validate a parsed frontmatter object into a typed Manifest, or return
  * a human-readable reason it failed. Kept separate from fetching so it's
  * easy to unit test.
@@ -118,7 +134,7 @@ export function validateManifest(data: unknown): ManifestResult {
     manifest: {
       name: obj.name,
       version: String(obj.version),
-      updated: typeof obj.updated === "string" ? obj.updated : undefined,
+      updated: normalizeUpdated(obj.updated),
       skills,
     },
   };
