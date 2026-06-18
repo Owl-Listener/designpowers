@@ -1,10 +1,13 @@
 import type { Config } from "tailwindcss";
 
 /**
- * Design tokens live here as the single source of truth.
- * The palette is deliberately small: an off-white paper background,
- * near-black ink, a muted grey scale for structure, and ONE accent.
- * Swapping the accent is a one-line change (see `accent` below).
+ * Design tokens — the single source of truth.
+ *
+ * Direction: "skills color the world of AI." A muted sage canvas plays
+ * host to bright, playful sticker-glyphs. The rule that keeps it CLEAR:
+ * colour lives in the shapes; text stays high-contrast (ink + forest).
+ * We never set body copy in the bright hues — those are decorative or
+ * large-and-bold only.
  */
 const config: Config = {
   content: [
@@ -14,16 +17,40 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        paper: "#FAFAF9", // off-white background (warm stone, not clinical white)
-        ink: "#1C1917", // near-black body text
-        muted: "#57534E", // secondary text
-        faint: "#A8A29E", // tertiary / captions
-        line: "#E7E5E4", // hairline borders
-        // The single accent. Change this hex to re-skin the whole product.
+        // ── Canvas + ink ────────────────────────────────────────────
+        sage: {
+          DEFAULT: "#9DB4A6", // the green canvas from the reference
+          light: "#B6C9BB", // lighter wash for large fields
+          deep: "#7E988A", // hairlines / borders on sage
+        },
+        paper: "#FBFBF8", // near-white card surface for dense content
+        ink: "#15130F", // near-black text + primary buttons/wordmark
+        muted: "#4A4742", // secondary text
+        faint: "#7C8A80", // tertiary / captions (reads on sage + paper)
+        line: "#E4E6DF", // hairline borders on paper
+
+        // ── Forest: the legible interactive accent ──────────────────
+        // High contrast on BOTH sage and paper — used for links/focus.
+        forest: {
+          DEFAULT: "#1E5C3A",
+          hover: "#15441C",
+        },
+
+        // ── The playful set: decorative + large-bold ONLY ───────────
+        magenta: "#EC36AE",
+        teal: "#34C7CD",
+        orange: "#F2792B",
+        maroon: "#7E2D1C",
+        rust: "#A8201A",
+        lime: "#DDEC9B",
+        orchid: "#D98CE8",
+
+        // `accent` is kept as an alias → forest, so existing interactive
+        // classes (links, buttons, focus rings) stay legible by default.
         accent: {
-          DEFAULT: "#4F46E5", // electric indigo — protocol/infrastructure read
-          hover: "#4338CA",
-          soft: "#EEF2FF", // tint for subtle backgrounds
+          DEFAULT: "#1E5C3A",
+          hover: "#15441C",
+          soft: "#E8F0E4", // soft green-tinted wash for success states
         },
       },
       fontFamily: {

@@ -3,6 +3,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PassportCard from "@/components/PassportCard";
+import { MotifRow } from "@/components/Motifs";
 import { getPassport } from "@/lib/tokens";
 import { fetchManifest } from "@/lib/manifest";
 
@@ -51,8 +52,8 @@ async function PassportBody({
 
   if (!result.ok) {
     return (
-      <div>
-        <p className="font-mono text-sm text-accent">Skills Passport</p>
+      <div className="rounded-2xl border border-line bg-paper px-6 py-8 shadow-[0_12px_40px_-20px_rgba(21,19,15,0.22)] sm:px-8">
+        <p className="font-mono text-sm font-medium text-forest">Skills Passport</p>
         <h1 className="mt-3 text-3xl font-semibold tracking-tight text-ink">
           {fallbackName}
         </h1>
@@ -73,8 +74,9 @@ async function PassportBody({
 
 function NotFound() {
   return (
-    <div className="text-center">
-      <p className="font-mono text-sm text-accent">404</p>
+    <div className="rounded-2xl border border-line bg-paper px-6 py-12 text-center shadow-[0_12px_40px_-20px_rgba(21,19,15,0.22)]">
+      <MotifRow seeds={["nf-1", "nf-2", "nf-3"]} size={40} className="justify-center" />
+      <p className="mt-6 font-mono text-sm font-medium text-forest">404</p>
       <h1 className="mt-3 text-3xl font-semibold tracking-tight text-ink">
         No passport here
       </h1>

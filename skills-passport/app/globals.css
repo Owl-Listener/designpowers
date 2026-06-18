@@ -16,17 +16,17 @@
   }
 
   body {
-    @apply bg-paper text-ink font-sans antialiased;
+    @apply bg-sage text-ink font-sans antialiased;
   }
 
   /* Visible, consistent focus ring for keyboard users across the app. */
   :focus-visible {
-    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-paper rounded-sm;
+    @apply outline-none ring-2 ring-forest ring-offset-2 ring-offset-sage rounded-sm;
   }
 
   ::selection {
-    background-color: theme("colors.accent.soft");
-    color: theme("colors.accent.hover");
+    background-color: theme("colors.magenta");
+    color: white;
   }
 }
 

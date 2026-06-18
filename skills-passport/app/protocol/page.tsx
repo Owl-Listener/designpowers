@@ -34,8 +34,11 @@ export default function ProtocolPage() {
   return (
     <>
       <Header />
-      <main id="main" className="mx-auto max-w-prose px-6 py-16">
-        <p className="font-mono text-sm text-accent">Specification · v1</p>
+      <main
+        id="main"
+        className="mx-auto my-12 max-w-prose rounded-3xl border border-line bg-paper px-6 py-12 shadow-[0_12px_40px_-20px_rgba(21,19,15,0.22)] sm:px-12"
+      >
+        <p className="font-mono text-sm font-medium text-forest">Specification · v1</p>
         <h1 className="mt-3 text-4xl font-semibold tracking-tight text-ink">
           The Skills Passport protocol
         </h1>
