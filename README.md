@@ -12,7 +12,19 @@ Designpowers is an open, model-agnostic design workflow that gives you a team of
 
 **Works with any AI coding tool.** Designpowers is markdown files — skills, agents, and hooks. It ships as both a Claude Code plugin and a Gemini CLI extension, but the design knowledge works anywhere that reads markdown instructions: Cursor, Windsurf, Copilot, Aider, or any future tool. The design process is the product, not the platform.
 
-## What You Get
+## Prefer a GUI? Meet OWL-1
+
+Designpowers runs in the terminal — but you can also **direct the whole team
+visually** with [OWL-1](https://github.com/Owl-Listener/owl-1), a digital-audio-
+workstation–style cockpit. Watch all ten agents work as live "tracks," approve
+each handoff, and steer any agent along the way.
+
+    npm start   # in OWL-1, with your Anthropic API key
+
+OWL-1 ships Designpowers vendored in, so it's a single download.
+
+
+## What You Get with Designpowers
 
 **10 specialist agents** that talk to each other and hand off work:
 
