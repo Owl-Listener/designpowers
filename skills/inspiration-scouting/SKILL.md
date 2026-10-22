@@ -17,7 +17,7 @@ The design-scout does competitive research — who else solves this problem and 
 
 ## Do Not Use When
 
-- The user has already provided specific visual references — use those directly
+- The user has already provided specific visual references — use those directly. If they are on a Pinterest board, run `moodboard-creator` first to bring them into Figma
 - The design system is locked and visual direction is predetermined
 - The task is a fix or iteration, not a new direction
 
@@ -148,7 +148,7 @@ You may still **record** new signals into `design-memory` as observations after 
 ## Integration
 
 - **Called by:** `design-discovery` (to set visual direction), `design-strategy` (for positioning references), `using-designpowers` (when user requests inspiration)
-- **Calls:** `design-memory` (only to record new observations after the fact — never to read constraints that steer the scouting)
+- **Calls:** `design-memory` (only to record new observations after the fact — never to read constraints that steer the scouting), `moodboard-creator` (when the user's references are on a Pinterest board)
 - **Hands off to:** `design-lead` (with curated references as visual brief), `design-strategist` (with emotional/UX references)
 - **Pairs with:** `design-memory`, `design-debate` (inspiration can trigger a debate on direction)
 - **Updated by:** User reactions — every "love it" or "not for me" is a taste data point

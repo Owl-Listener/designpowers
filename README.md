@@ -73,6 +73,7 @@ Discover → Research → Strategise → Taste → Inspire → Plan → Design �
 | Taste | `design-taste` | Your aesthetic direction — references, emotional targets, craft standards, quality bar |
 | Memory | `design-memory` | Observes how you design across projects — a descriptive record you can read, never applied to steer the work |
 | Inspiration | `inspiration-scouting` | Aesthetic references across domains, filtered through your taste |
+| Board Import | `moodboard-creator` | Pulls every pin from a Pinterest board into a masonry auto-layout frame in Figma |
 | Debate | `design-debate` | Agents argue competing directions — you see the trade-offs, you decide |
 | Plan | `writing-design-plans` | 2-5 minute tasks with accessibility checks per task |
 | UI | `ui-composition` | Layout, colour, typography — every choice meets WCAG |
